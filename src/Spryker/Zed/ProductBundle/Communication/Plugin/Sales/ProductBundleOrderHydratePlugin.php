@@ -5,17 +5,17 @@
  * Use of this software requires acceptance of the Evaluation License Agreement. See LICENSE file.
  */
 
-namespace Spryker\Zed\ProductBundle\Communication\Plugin\SalesAggregator;
+namespace Spryker\Zed\ProductBundle\Communication\Plugin\Sales;
 
 use Generated\Shared\Transfer\OrderTransfer;
 use Spryker\Zed\Kernel\Communication\AbstractPlugin;
-use Spryker\Zed\SalesAggregator\Dependency\Plugin\OrderTotalsAggregatePluginInterface;
+use Spryker\Zed\Sales\Dependency\Plugin\HydrateOrderPluginInterface;
 
 /**
  * @method \Spryker\Zed\ProductBundle\Business\ProductBundleFacade getFacade()
  * @method \Spryker\Zed\ProductBundle\Communication\ProductBundleCommunicationFactory getFactory()
  */
-class ProductBundlePriceAggregatorPlugin extends AbstractPlugin implements OrderTotalsAggregatePluginInterface
+class ProductBundleOrderHydratePlugin extends AbstractPlugin implements HydrateOrderPluginInterface
 {
 
     /**
@@ -23,11 +23,11 @@ class ProductBundlePriceAggregatorPlugin extends AbstractPlugin implements Order
      *
      * @param \Generated\Shared\Transfer\OrderTransfer $orderTransfer
      *
-     * @return void
+     * @return \Generated\Shared\Transfer\OrderTransfer
      */
-    public function aggregate(OrderTransfer $orderTransfer)
+    public function hydrate(OrderTransfer $orderTransfer)
     {
-         $this->getFacade()->aggregateBundlePrice($orderTransfer);
+        return $this->getFacade()->hydrateSalesOrderProductBundles($orderTransfer);
     }
 
 }
