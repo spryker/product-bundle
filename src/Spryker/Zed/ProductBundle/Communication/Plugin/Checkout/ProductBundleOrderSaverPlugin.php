@@ -7,27 +7,29 @@
 
 namespace Spryker\Zed\ProductBundle\Communication\Plugin\Checkout;
 
-use Generated\Shared\Transfer\CheckoutResponseTransfer;
 use Generated\Shared\Transfer\QuoteTransfer;
-use Spryker\Zed\Checkout\Dependency\Plugin\CheckoutPreConditionInterface;
+use Generated\Shared\Transfer\SaveOrderTransfer;
+use Spryker\Zed\Checkout\Dependency\Plugin\CheckoutDoSaveOrderInterface;
 use Spryker\Zed\Kernel\Communication\AbstractPlugin;
 
 /**
+ * Requires Checkout ^4.0.0
+ *
  * @method \Spryker\Zed\ProductBundle\Business\ProductBundleFacadeInterface getFacade()
  * @method \Spryker\Zed\ProductBundle\Communication\ProductBundleCommunicationFactory getFactory()
  */
-class ProductBundleAvailabilityCheckoutPreConditionPlugin extends AbstractPlugin implements CheckoutPreConditionInterface
+class ProductBundleOrderSaverPlugin extends AbstractPlugin implements CheckoutDoSaveOrderInterface
 {
     /**
      * @api
      *
      * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
-     * @param \Generated\Shared\Transfer\CheckoutResponseTransfer $checkoutResponseTransfer
+     * @param \Generated\Shared\Transfer\SaveOrderTransfer $saveOrderTransfer
      *
-     * @return bool
+     * @return void
      */
-    public function checkCondition(QuoteTransfer $quoteTransfer, CheckoutResponseTransfer $checkoutResponseTransfer)
+    public function saveOrder(QuoteTransfer $quoteTransfer, SaveOrderTransfer $saveOrderTransfer)
     {
-        return $this->getFacade()->preCheckCheckoutAvailability($quoteTransfer, $checkoutResponseTransfer);
+         $this->getFacade()->saveOrderBundleItems($quoteTransfer, $saveOrderTransfer);
     }
 }
