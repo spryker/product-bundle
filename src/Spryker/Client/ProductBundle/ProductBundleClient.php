@@ -5,18 +5,20 @@
  * Use of this software requires acceptance of the Evaluation License Agreement. See LICENSE file.
  */
 
-namespace Spryker\Yves\ProductBundle\Grouper;
+namespace Spryker\Client\ProductBundle;
 
 use ArrayObject;
-use Spryker\Client\ProductBundle\Grouper\ProductBundleGrouper as ClientProductBundleGrouper;
+use Spryker\Client\Kernel\AbstractClient;
 
 /**
- * @deprecated Use \Spryker\Client\ProductBundle\ProductBundleClient instead.
+ * @method \Spryker\Client\ProductBundle\ProductBundleFactory getFactory()
  */
-class ProductBundleGrouper extends ClientProductBundleGrouper implements ProductBundleGrouperInterface
+class ProductBundleClient extends AbstractClient implements ProductBundleClientInterface
 {
     /**
-     * @deprecated Use \Spryker\Client\ProductBundle\ProductBundleClient::getGroupedBundleItems() instead.
+     * {@inheritdoc}
+     *
+     * @api
      *
      * @param \ArrayObject|\Generated\Shared\Transfer\ItemTransfer[] $items
      * @param \ArrayObject|\Generated\Shared\Transfer\ItemTransfer[] $bundleItems
@@ -25,6 +27,8 @@ class ProductBundleGrouper extends ClientProductBundleGrouper implements Product
      */
     public function getGroupedBundleItems(ArrayObject $items, ArrayObject $bundleItems)
     {
-        return parent::getGroupedBundleItems($items, $bundleItems);
+        return $this->getFactory()
+            ->createProductBundleGrouper()
+            ->getGroupedBundleItems($items, $bundleItems);
     }
 }
