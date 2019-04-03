@@ -8,6 +8,7 @@
 namespace Spryker\Zed\ProductBundle\Communication\Plugin\Cart;
 
 use Generated\Shared\Transfer\CartChangeTransfer;
+use Generated\Shared\Transfer\CartPreCheckResponseTransfer;
 use Spryker\Zed\CartExtension\Dependency\Plugin\CartPreCheckPluginInterface;
 use Spryker\Zed\Kernel\Communication\AbstractPlugin;
 
@@ -17,12 +18,12 @@ use Spryker\Zed\Kernel\Communication\AbstractPlugin;
  * @method \Spryker\Zed\ProductBundle\ProductBundleConfig getConfig()
  * @method \Spryker\Zed\ProductBundle\Persistence\ProductBundleQueryContainerInterface getQueryContainer()
  */
-class CartBundleAvailabilityPreCheckPlugin extends AbstractPlugin implements CartPreCheckPluginInterface
+class CartBundlePricesPreCheckPlugin extends AbstractPlugin implements CartPreCheckPluginInterface
 {
     /**
      * {@inheritdoc}
-     * - Checks if bundled items in CartChangeTransfer are available.
-     * - Sets error message if they were not.
+     *  - Checks if bundled products of cart items has price for current store.
+     *  - Sets error message if prices are not available.
      *
      * @api
      *
@@ -30,8 +31,8 @@ class CartBundleAvailabilityPreCheckPlugin extends AbstractPlugin implements Car
      *
      * @return \Generated\Shared\Transfer\CartPreCheckResponseTransfer
      */
-    public function check(CartChangeTransfer $cartChangeTransfer)
+    public function check(CartChangeTransfer $cartChangeTransfer): CartPreCheckResponseTransfer
     {
-         return $this->getFacade()->preCheckCartAvailability($cartChangeTransfer);
+        return $this->getFacade()->preCheckBundledProductPrices($cartChangeTransfer);
     }
 }
