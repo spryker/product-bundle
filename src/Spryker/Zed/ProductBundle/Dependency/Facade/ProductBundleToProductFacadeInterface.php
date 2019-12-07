@@ -11,7 +11,7 @@ use Generated\Shared\Transfer\LocaleTransfer;
 use Generated\Shared\Transfer\ProductAbstractTransfer;
 use Generated\Shared\Transfer\ProductConcreteTransfer;
 
-interface ProductBundleToProductInterface
+interface ProductBundleToProductFacadeInterface
 {
     /**
      * @param \Generated\Shared\Transfer\ProductAbstractTransfer $productAbstractTransfer
@@ -23,20 +23,6 @@ interface ProductBundleToProductInterface
      * @return int
      */
     public function addProduct(ProductAbstractTransfer $productAbstractTransfer, array $productConcreteCollection);
-
-    /**
-     * @param int $idProductAbstract
-     *
-     * @return void
-     */
-    public function touchProductAbstract($idProductAbstract);
-
-    /**
-     * @param int $idProductConcrete
-     *
-     * @return void
-     */
-    public function activateProductConcrete($idProductConcrete);
 
     /**
      * @param string $concreteSku
