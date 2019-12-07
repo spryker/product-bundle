@@ -11,7 +11,7 @@ use Generated\Shared\Transfer\LocaleTransfer;
 use Generated\Shared\Transfer\ProductAbstractTransfer;
 use Generated\Shared\Transfer\ProductConcreteTransfer;
 
-class ProductBundleToProductBridge implements ProductBundleToProductInterface
+class ProductBundleToProductFacadeBridge implements ProductBundleToProductFacadeInterface
 {
     /**
      * @var \Spryker\Zed\Product\Business\ProductFacadeInterface
@@ -35,26 +35,6 @@ class ProductBundleToProductBridge implements ProductBundleToProductInterface
     public function addProduct(ProductAbstractTransfer $productAbstractTransfer, array $productConcreteCollection)
     {
         return $this->productFacade->addProduct($productAbstractTransfer, $productConcreteCollection);
-    }
-
-    /**
-     * @param int $idProductAbstract
-     *
-     * @return void
-     */
-    public function touchProductAbstract($idProductAbstract)
-    {
-        $this->productFacade->touchProductAbstract($idProductAbstract);
-    }
-
-    /**
-     * @param int $idProductConcrete
-     *
-     * @return void
-     */
-    public function activateProductConcrete($idProductConcrete)
-    {
-        $this->productFacade->activateProductConcrete($idProductConcrete);
     }
 
     /**

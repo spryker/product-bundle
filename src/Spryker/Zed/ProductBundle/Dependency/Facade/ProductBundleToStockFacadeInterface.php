@@ -7,15 +7,12 @@
 
 namespace Spryker\Zed\ProductBundle\Dependency\Facade;
 
-interface ProductBundleToPriceInterface
+interface ProductBundleToStockFacadeInterface
 {
     /**
-     * @return string
+     * @param string $sku
+     *
+     * @return \Generated\Shared\Transfer\StoreTransfer[]
      */
-    public function getNetPriceModeIdentifier();
-
-    /**
-     * @return string
-     */
-    public function getGrossPriceModeIdentifier();
+    public function getStoresWhereProductStockIsDefined(string $sku): array;
 }

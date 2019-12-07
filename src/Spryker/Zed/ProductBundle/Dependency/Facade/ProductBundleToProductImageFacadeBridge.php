@@ -7,7 +7,7 @@
 
 namespace Spryker\Zed\ProductBundle\Dependency\Facade;
 
-class ProductBundleToProductImageBridge implements ProductBundleToProductImageInterface
+class ProductBundleToProductImageFacadeBridge implements ProductBundleToProductImageFacadeInterface
 {
     /**
      * @var \Spryker\Zed\ProductImage\Business\ProductImageFacadeInterface
@@ -20,16 +20,6 @@ class ProductBundleToProductImageBridge implements ProductBundleToProductImageIn
     public function __construct($productImageFacade)
     {
         $this->productImageFacade = $productImageFacade;
-    }
-
-    /**
-     * @param int $productId
-     *
-     * @return \Generated\Shared\Transfer\ProductImageSetTransfer[]
-     */
-    public function getProductImagesSetCollectionByProductId($productId)
-    {
-        return $this->productImageFacade->getProductImagesSetCollectionByProductId($productId);
     }
 
     /**

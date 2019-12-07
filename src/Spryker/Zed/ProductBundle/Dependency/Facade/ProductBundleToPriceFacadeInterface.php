@@ -7,10 +7,10 @@
 
 namespace Spryker\Zed\ProductBundle\Dependency\Facade;
 
-interface ProductBundleToLocaleInterface
+interface ProductBundleToPriceFacadeInterface
 {
     /**
-     * @return \Generated\Shared\Transfer\LocaleTransfer
+     * @return string
      */
-    public function getCurrentLocale();
+    public function getNetPriceModeIdentifier();
 }

@@ -7,7 +7,7 @@
 
 namespace Spryker\Zed\ProductBundle\Dependency\Facade;
 
-class ProductBundleToPriceBridge implements ProductBundleToPriceInterface
+class ProductBundleToPriceFacadeBridge implements ProductBundleToPriceFacadeInterface
 {
     /**
      * @var \Spryker\Zed\Price\Business\PriceFacadeInterface
@@ -28,13 +28,5 @@ class ProductBundleToPriceBridge implements ProductBundleToPriceInterface
     public function getNetPriceModeIdentifier()
     {
         return $this->priceFacade->getNetPriceModeIdentifier();
-    }
-
-    /**
-     * @return string
-     */
-    public function getGrossPriceModeIdentifier()
-    {
-        return $this->priceFacade->getGrossPriceModeIdentifier();
     }
 }
