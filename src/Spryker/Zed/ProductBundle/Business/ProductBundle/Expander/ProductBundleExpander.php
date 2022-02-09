@@ -59,7 +59,7 @@ class ProductBundleExpander implements ProductBundleExpanderInterface
         foreach ($orderTransfer->getBundleItems() as $itemTransfer) {
             $bundleItemIdentifier = $itemTransfer->requireBundleItemIdentifier()->getBundleItemIdentifier();
 
-            if (!isset($uniqueItemTransfers[$bundleItemIdentifier])) {
+            if (!isset($calculatedOrderItems[$bundleItemIdentifier])) {
                 $uniqueItemTransfers[$bundleItemIdentifier] = clone $itemTransfer;
 
                 continue;
