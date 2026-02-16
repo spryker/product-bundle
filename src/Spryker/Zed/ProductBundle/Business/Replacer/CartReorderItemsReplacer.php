@@ -46,6 +46,7 @@ class CartReorderItemsReplacer implements CartReorderItemsReplacerInterface
 
         foreach ($productBundleItemsIndexedByProductBundleIdentifier as $bundleItemIdentifier => $productBundleItemTransfer) {
             $firstBundledItemIndex = array_key_first($bundledItemTransfersGroupedByProductBundleIdentifier[$bundleItemIdentifier]);
+            // @phpstan-ignore offsetAccess.notFound
             $firstItemInBundle = $bundledItemTransfersGroupedByProductBundleIdentifier[$bundleItemIdentifier][$firstBundledItemIndex];
 
             $productBundleItemTransfer
@@ -140,7 +141,7 @@ class CartReorderItemsReplacer implements CartReorderItemsReplacerInterface
     }
 
     /**
-     * @param list<\Generated\Shared\Transfer\ItemTransfer> $itemTransfers
+     * @param array<\Generated\Shared\Transfer\ItemTransfer> $itemTransfers
      *
      * @return array<string, array<int, \Generated\Shared\Transfer\ItemTransfer>>
      */
@@ -158,7 +159,7 @@ class CartReorderItemsReplacer implements CartReorderItemsReplacerInterface
     }
 
     /**
-     * @param list<\Generated\Shared\Transfer\ItemTransfer> $itemTransfers
+     * @param array<\Generated\Shared\Transfer\ItemTransfer> $itemTransfers
      *
      * @return array<string, \Generated\Shared\Transfer\ItemTransfer>
      */
