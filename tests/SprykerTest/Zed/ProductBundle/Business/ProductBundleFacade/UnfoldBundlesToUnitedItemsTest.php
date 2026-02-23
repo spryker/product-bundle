@@ -5,7 +5,7 @@
  * Use of this software requires acceptance of the Evaluation License Agreement. See LICENSE file.
  */
 
-namespace SprykerTest\Zed\ProductBundle\Business\Cart;
+namespace SprykerTest\Zed\ProductBundle\Business\ProductBundleFacade;
 
 use ArrayObject;
 use Codeception\Test\Unit;
@@ -29,7 +29,7 @@ use Generated\Shared\Transfer\StoreTransfer;
  * @group Zed
  * @group ProductBundle
  * @group Business
- * @group Cart
+ * @group ProductBundleFacade
  * @group UnfoldBundlesToUnitedItemsTest
  * Add your own group annotations below this line
  */

@@ -5,7 +5,7 @@
  * Use of this software requires acceptance of the Evaluation License Agreement. See LICENSE file.
  */
 
-namespace SprykerTest\Zed\ProductBundle\Communication\Plugin\CartReorder;
+namespace SprykerTest\Zed\ProductBundle\Communication\Plugin\Quote;
 
 use Codeception\Test\Unit;
 use Generated\Shared\Transfer\ItemTransfer;
@@ -21,7 +21,7 @@ use SprykerTest\Zed\ProductBundle\ProductBundleCommunicationTester;
  * @group ProductBundle
  * @group Communication
  * @group Plugin
- * @group CartReorder
+ * @group Quote
  * @group SanitizeBundleItemsBeforeQuoteSavePluginTest
  * Add your own group annotations below this line
  */
