@@ -77,7 +77,6 @@ class ProductBundleAvailabilityHandlerTest extends Unit
             ->willReturn($bundledProducts);
 
         $this->setupGetBundleItemsByIdProduct($bundleQuantity, $bundledItemSku, $productBundleAvailabilityHandlerMock);
-        $this->setupProductBundleAvailability($bundledItemAvailability, $productBundleAvailabilityHandlerMock);
 
         $availabilityFacadeMock->expects($this->once())
             ->method('saveProductAvailabilityForStore')
@@ -115,7 +114,6 @@ class ProductBundleAvailabilityHandlerTest extends Unit
             ->method('saveProductAvailabilityForStore')
             ->with($bundleSku, $expectedBundleAvailability);
 
-        $this->setupProductBundleAvailability($bundledItemAvailability, $productBundleAvailabilityHandlerMock);
         $this->setupGetBundleItemsByIdProduct($bundleQuantity, $bundledItemSku, $productBundleAvailabilityHandlerMock);
 
         $productBundleAvailabilityHandlerMock->updateBundleAvailability($bundleSku);
@@ -151,7 +149,6 @@ class ProductBundleAvailabilityHandlerTest extends Unit
 
         return $this->getMockBuilder(ProductBundleAvailabilityHandler::class)
             ->setConstructorArgs([$availabilityFacadeMock, $productBundleQueryContainerMock, $stockFacadeMock])
-            ->addMethods(['findBundledItemAvailabilityEntityBySku'])
             ->onlyMethods(['getBundleItemsByIdProduct', 'getBundlesUsingProductBySku', 'findBundleProductEntityBySku'])
             ->getMock();
     }
@@ -203,22 +200,5 @@ class ProductBundleAvailabilityHandlerTest extends Unit
 
         $productBundleAvailabilityHandlerMock->method('getBundleItemsByIdProduct')
             ->willReturn($bundleItems);
-    }
-
-    /**
-     * @param \Spryker\DecimalObject\Decimal $bundledItemAvailability
-     * @param \Spryker\Zed\ProductBundle\Business\ProductBundle\Availability\ProductBundleAvailabilityHandlerInterface|\PHPUnit\Framework\MockObject\MockObject $productBundleAvailabilityHandlerMock
-     *
-     * @return void
-     */
-    protected function setupProductBundleAvailability(
-        Decimal $bundledItemAvailability,
-        ProductBundleAvailabilityHandlerInterface $productBundleAvailabilityHandlerMock
-    ): void {
-        $availabilityTransfer = new ProductConcreteAvailabilityTransfer();
-        $availabilityTransfer->setAvailability($bundledItemAvailability);
-
-        $productBundleAvailabilityHandlerMock->method('findBundledItemAvailabilityEntityBySku')
-            ->willReturn($availabilityTransfer);
     }
 }

@@ -198,17 +198,14 @@ class ProductBundleCartExpanderTest extends Unit
 
         $productBundleReaderMock = $this->createProductBundleReaderMock();
 
-        return $this->getMockBuilder(ProductBundleCartExpander::class)
-            ->setConstructorArgs([
-                $priceProductFacadeMock,
-                $productFacadeMock,
-                $localeFacadeMock,
-                $productBundleReaderMock,
-                $priceReaderMock,
-                $productBundleConfigMock,
-            ])
-            ->addMethods(['findBundledItemsByIdProductConcrete'])
-            ->getMock();
+        return new ProductBundleCartExpander(
+            $priceProductFacadeMock,
+            $productFacadeMock,
+            $localeFacadeMock,
+            $productBundleReaderMock,
+            $priceReaderMock,
+            $productBundleConfigMock,
+        );
     }
 
     /**
@@ -299,7 +296,7 @@ class ProductBundleCartExpanderTest extends Unit
         $bundledProducts = new ObjectCollection();
         $bundledProducts->append($productBundleEntity);
 
-        $productExpanderMock->method('findBundledItemsByIdProductConcrete')->willReturn($bundledProducts);
+//        $productExpanderMock->method('findBundledItemsByIdProductConcrete')->willReturn($bundledProducts);
     }
 
     /**
