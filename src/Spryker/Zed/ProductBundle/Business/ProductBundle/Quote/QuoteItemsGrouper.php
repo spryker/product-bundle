@@ -13,11 +13,6 @@ use Generated\Shared\Transfer\QuoteTransfer;
 
 class QuoteItemsGrouper implements QuoteItemsGrouperInterface
 {
-    /**
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
-     *
-     * @return \Generated\Shared\Transfer\ItemCollectionTransfer
-     */
     public function extractQuoteItems(QuoteTransfer $quoteTransfer): ItemCollectionTransfer
     {
         $itemCollectionTransfer = new ItemCollectionTransfer();
@@ -29,11 +24,6 @@ class QuoteItemsGrouper implements QuoteItemsGrouperInterface
         return $itemCollectionTransfer;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\ItemCollectionTransfer $itemCollectionTransfer
-     *
-     * @return \Generated\Shared\Transfer\ItemCollectionTransfer
-     */
     protected function filterBundledItems(ItemCollectionTransfer $itemCollectionTransfer): ItemCollectionTransfer
     {
         $items = new ArrayObject();
@@ -48,12 +38,6 @@ class QuoteItemsGrouper implements QuoteItemsGrouperInterface
         return $itemCollectionTransfer;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\ItemCollectionTransfer $itemCollectionTransfer
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
-     *
-     * @return \Generated\Shared\Transfer\ItemCollectionTransfer
-     */
     protected function addBundleItems(ItemCollectionTransfer $itemCollectionTransfer, QuoteTransfer $quoteTransfer): ItemCollectionTransfer
     {
         $itemsProcessedIndex = [];
@@ -68,12 +52,6 @@ class QuoteItemsGrouper implements QuoteItemsGrouperInterface
         return $itemCollectionTransfer;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
-     * @param string $groupKey
-     *
-     * @return int
-     */
     protected function getBundledProductTotalQuantity(QuoteTransfer $quoteTransfer, string $groupKey): int
     {
         $bundleItemQuantity = 0;

@@ -27,17 +27,11 @@ class ProductBundlePersistenceFactory extends AbstractPersistenceFactory
         return SpyProductBundleQuery::create();
     }
 
-    /**
-     * @return \Orm\Zed\ProductBundle\Persistence\SpySalesOrderItemBundleQuery
-     */
     public function createSalesOrderItemBundlePropelQuery(): SpySalesOrderItemBundleQuery
     {
         return SpySalesOrderItemBundleQuery::create();
     }
 
-    /**
-     * @return \Spryker\Zed\ProductBundle\Persistence\Propel\Mapper\ProductBundleMapper
-     */
     public function createProductBundleMapper(): ProductBundleMapper
     {
         return new ProductBundleMapper();

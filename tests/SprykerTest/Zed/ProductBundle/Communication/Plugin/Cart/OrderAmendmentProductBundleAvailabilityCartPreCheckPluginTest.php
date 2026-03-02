@@ -40,9 +40,6 @@ class OrderAmendmentProductBundleAvailabilityCartPreCheckPluginTest extends Unit
      */
     protected ProductBundleCommunicationTester $tester;
 
-    /**
-     * @return void
-     */
     public function testCheckReturnsSuccessfulResponseWhenBundleProductIsActive(): void
     {
         // Arrange
@@ -60,9 +57,6 @@ class OrderAmendmentProductBundleAvailabilityCartPreCheckPluginTest extends Unit
         $this->assertTrue($cartPreCheckResponseTransfer->getIsSuccess());
     }
 
-    /**
-     * @return void
-     */
     public function testCheckReturnsSuccessfulResponseWhenBundleProductIsNotActive(): void
     {
         // Arrange
@@ -80,9 +74,6 @@ class OrderAmendmentProductBundleAvailabilityCartPreCheckPluginTest extends Unit
         $this->assertFalse($cartPreCheckResponseTransfer->getIsSuccess());
     }
 
-    /**
-     * @return void
-     */
     public function testCheckReturnsSuccessfulResponseWhenBundleProductIsNotActiveAndExistsInOriginalSalesOrderItems(): void
     {
         // Arrange

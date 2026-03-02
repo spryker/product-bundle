@@ -29,13 +29,6 @@ class BundleProductQuoteItemFinder implements BundleProductQuoteItemFinderInterf
         return $itemTransfer;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
-     * @param string $sku
-     * @param string|null $groupKey
-     *
-     * @return \Generated\Shared\Transfer\ItemTransfer|null
-     */
     protected function findBundleItem(QuoteTransfer $quoteTransfer, string $sku, ?string $groupKey = null): ?ItemTransfer
     {
         foreach ($quoteTransfer->getBundleItems() as $itemTransfer) {
@@ -50,12 +43,6 @@ class BundleProductQuoteItemFinder implements BundleProductQuoteItemFinderInterf
         return null;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
-     * @param string|null $groupKey
-     *
-     * @return int
-     */
     protected function getBundledProductTotalQuantity(QuoteTransfer $quoteTransfer, ?string $groupKey): int
     {
         $bundleItemQuantity = 0;
@@ -69,13 +56,6 @@ class BundleProductQuoteItemFinder implements BundleProductQuoteItemFinderInterf
         return $bundleItemQuantity;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
-     * @param string $sku
-     * @param string|null $groupKey
-     *
-     * @return \Generated\Shared\Transfer\ItemTransfer|null
-     */
     protected function findQuoteItem(QuoteTransfer $quoteTransfer, string $sku, ?string $groupKey = null): ?ItemTransfer
     {
         foreach ($quoteTransfer->getItems() as $itemTransfer) {
@@ -87,13 +67,6 @@ class BundleProductQuoteItemFinder implements BundleProductQuoteItemFinderInterf
         return null;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\ItemTransfer $itemTransfer
-     * @param string $sku
-     * @param string|null $groupKey
-     *
-     * @return bool
-     */
     protected function checkItem(ItemTransfer $itemTransfer, string $sku, ?string $groupKey = null): bool
     {
         return ($itemTransfer->getSku() === $sku && $groupKey === null) ||

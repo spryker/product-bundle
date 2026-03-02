@@ -12,10 +12,5 @@ use Generated\Shared\Transfer\QuoteTransfer;
 
 interface QuoteItemsGrouperInterface
 {
-    /**
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
-     *
-     * @return \Generated\Shared\Transfer\ItemCollectionTransfer
-     */
     public function extractQuoteItems(QuoteTransfer $quoteTransfer): ItemCollectionTransfer;
 }

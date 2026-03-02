@@ -75,13 +75,6 @@ class BundleItemUnfolder implements BundleItemUnfolderInterface
      */
     protected $productBundleReader;
 
-    /**
-     * @param \Spryker\Zed\ProductBundle\Dependency\Facade\ProductBundleToPriceProductFacadeInterface $priceProductFacade
-     * @param \Spryker\Zed\ProductBundle\Dependency\Facade\ProductBundleToProductFacadeInterface $productFacade
-     * @param \Spryker\Zed\ProductBundle\Dependency\Facade\ProductBundleToLocaleFacadeInterface $localeFacade
-     * @param \Spryker\Zed\ProductBundle\Business\ProductBundle\ProductBundleReaderInterface $productBundleReader
-     * @param \Spryker\Zed\ProductBundle\Business\ProductBundle\Price\PriceReaderInterface $priceReader
-     */
     public function __construct(
         ProductBundleToPriceProductFacadeInterface $priceProductFacade,
         ProductBundleToProductFacadeInterface $productFacade,
@@ -96,11 +89,6 @@ class BundleItemUnfolder implements BundleItemUnfolderInterface
         $this->priceReader = $priceReader;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\CartChangeTransfer $cartChangeTransfer
-     *
-     * @return \Generated\Shared\Transfer\CartChangeTransfer
-     */
     public function unfoldBundlesToUnitedItems(CartChangeTransfer $cartChangeTransfer): CartChangeTransfer
     {
         /** @var \ArrayObject<int, \Generated\Shared\Transfer\ItemTransfer> $cartChangeItemTransfers */
@@ -296,15 +284,6 @@ class BundleItemUnfolder implements BundleItemUnfolderInterface
         return $itemTransfers;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
-     * @param \Generated\Shared\Transfer\ProductForBundleTransfer $productForBundleTransfer
-     * @param string $bundleItemIdentifier
-     * @param int $itemQuantity
-     * @param int $multiplyTimes
-     *
-     * @return array
-     */
     protected function multiplyBundledItemTransfer(
         QuoteTransfer $quoteTransfer,
         ProductForBundleTransfer $productForBundleTransfer,
@@ -326,11 +305,6 @@ class BundleItemUnfolder implements BundleItemUnfolderInterface
         return $itemTransfers;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\ItemTransfer $itemTransfer
-     *
-     * @return string
-     */
     protected function buildBundleIdentifier(ItemTransfer $itemTransfer): string
     {
         return $this->buildGroupKey($itemTransfer) . static::BUNDLE_IDENTIFIER_DELIMITER . uniqid('1');
@@ -413,12 +387,6 @@ class BundleItemUnfolder implements BundleItemUnfolderInterface
         return $itemTransfer;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
-     * @param string $sku
-     *
-     * @return int
-     */
     protected function getProductPrice(QuoteTransfer $quoteTransfer, string $sku): int
     {
         if (!isset(static::$productPriceCache[$sku])) {
@@ -429,11 +397,6 @@ class BundleItemUnfolder implements BundleItemUnfolderInterface
         return static::$productPriceCache[$sku];
     }
 
-    /**
-     * @param string $sku
-     *
-     * @return \Generated\Shared\Transfer\ProductConcreteTransfer
-     */
     protected function getProductConcreteTransfer(string $sku): ProductConcreteTransfer
     {
         if (!isset(static::$productConcreteTransfersCache[$sku])) {
@@ -443,12 +406,6 @@ class BundleItemUnfolder implements BundleItemUnfolderInterface
         return static::$productConcreteTransfersCache[$sku];
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\ProductConcreteTransfer $productConcreteTransfer
-     * @param \Generated\Shared\Transfer\LocaleTransfer $currentLocaleTransfer
-     *
-     * @return string
-     */
     protected function getLocalizedProductName(
         ProductConcreteTransfer $productConcreteTransfer,
         LocaleTransfer $currentLocaleTransfer
@@ -505,11 +462,6 @@ class BundleItemUnfolder implements BundleItemUnfolderInterface
         return $this->buildGroupKey($bundleItemTransfer) . static::GROUP_KEY_DELIMITER . $this->combineProductOptionParts($productOptionTransfers);
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\ItemTransfer $itemTransfer
-     *
-     * @return string
-     */
     protected function buildGroupKey(ItemTransfer $itemTransfer): string
     {
         if ($itemTransfer->getGroupKeyPrefix()) {
@@ -519,13 +471,6 @@ class BundleItemUnfolder implements BundleItemUnfolderInterface
         return $itemTransfer->getSkuOrFail();
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\ItemTransfer $itemTransfer
-     * @param int $unitPrice
-     * @param string $priceMode
-     *
-     * @return void
-     */
     protected function setPrice(ItemTransfer $itemTransfer, int $unitPrice, string $priceMode): void
     {
         if ($priceMode === $this->priceReader->getNetPriceModeIdentifier()) {
@@ -543,12 +488,6 @@ class BundleItemUnfolder implements BundleItemUnfolderInterface
             ->setSumNetPrice(0);
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\ItemTransfer $itemTransfer
-     * @param string $priceMode
-     *
-     * @return int
-     */
     protected function getPriceByPriceMode(ItemTransfer $itemTransfer, string $priceMode): int
     {
         if ($priceMode === $this->priceReader->getNetPriceModeIdentifier()) {
@@ -558,12 +497,6 @@ class BundleItemUnfolder implements BundleItemUnfolderInterface
         return $itemTransfer->getUnitGrossPriceOrFail();
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
-     * @param string $sku
-     *
-     * @return \Generated\Shared\Transfer\PriceProductFilterTransfer
-     */
     protected function createStoreSpecificPriceProductFilterTransfer(QuoteTransfer $quoteTransfer, string $sku): PriceProductFilterTransfer
     {
         return (new PriceProductFilterTransfer())

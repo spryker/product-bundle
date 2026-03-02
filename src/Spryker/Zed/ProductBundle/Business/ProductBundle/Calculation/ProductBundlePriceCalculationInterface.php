@@ -35,18 +35,7 @@ interface ProductBundlePriceCalculationInterface
         array $bundledProducts
     );
 
-    /**
-     * @param \Generated\Shared\Transfer\CalculableObjectTransfer $calculableObjectTransfer
-     *
-     * @return \Generated\Shared\Transfer\CalculableObjectTransfer
-     */
     public function calculateForCalculableObjectTransfer(CalculableObjectTransfer $calculableObjectTransfer): CalculableObjectTransfer;
 
-    /**
-     * @param \Generated\Shared\Transfer\ItemTransfer $bundleItemTransfer
-     * @param \Generated\Shared\Transfer\ItemTransfer $itemTransfer
-     *
-     * @return void
-     */
     public function calculateBundleAmounts(ItemTransfer $bundleItemTransfer, ItemTransfer $itemTransfer): void;
 }

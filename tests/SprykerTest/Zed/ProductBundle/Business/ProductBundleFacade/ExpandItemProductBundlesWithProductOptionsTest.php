@@ -28,9 +28,6 @@ class ExpandItemProductBundlesWithProductOptionsTest extends Unit
      */
     protected $tester;
 
-    /**
-     * @return void
-     */
     public function testExpandItemProductBundlesWithProductOptionsCopiesUniqueProductOptionsFromItemsToBundleItems(): void
     {
         // Arrange
@@ -44,9 +41,6 @@ class ExpandItemProductBundlesWithProductOptionsTest extends Unit
         $this->assertCount(2, $itemTransfers[2]->getProductBundle()->getProductOptions());
     }
 
-    /**
-     * @return void
-     */
     public function testExpandItemProductBundlesWithProductOptionsConsiderProductOptionOrdering(): void
     {
         // Arrange

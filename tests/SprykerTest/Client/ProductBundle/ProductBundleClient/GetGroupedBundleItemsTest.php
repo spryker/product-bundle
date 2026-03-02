@@ -84,9 +84,6 @@ class GetGroupedBundleItemsTest extends Unit
      */
     protected ProductBundleClientTester $tester;
 
-    /**
-     * @return void
-     */
     public function testBundleShouldBeGroupedByBundleSkuWhenItemsDoNotHaveOptions(): void
     {
         // Arrange
@@ -114,9 +111,6 @@ class GetGroupedBundleItemsTest extends Unit
         $this->assertCount(2, $groupedProductBundles[static::BUNDLE_PRODUCT_SKU][static::BUNDLE_ITEMS]);
     }
 
-    /**
-     * @return void
-     */
     public function testBundleShouldBeGroupedByGeneratedBundleGroupKeyWhenItemsHaveOptions(): void
     {
         // Arrange
@@ -150,9 +144,6 @@ class GetGroupedBundleItemsTest extends Unit
         $this->assertCount(2, $groupedProductBundles[$bundleGroupKey][static::BUNDLE_ITEMS]);
     }
 
-    /**
-     * @return void
-     */
     public function testBundleItemsWithSameGroupKeyShouldBeMerged(): void
     {
         // Arrange
@@ -210,9 +201,6 @@ class GetGroupedBundleItemsTest extends Unit
         $this->assertCount(1, $groupedProductBundles[static::BUNDLE_PRODUCT_SKU_2][static::BUNDLE_ITEMS]);
     }
 
-    /**
-     * @return void
-     */
     public function testItemsWithSameSkuAndRelatedBundleIdentifierShouldBeMerged(): void
     {
         // Arrange
@@ -244,9 +232,6 @@ class GetGroupedBundleItemsTest extends Unit
         $this->assertSame(3, $groupedProductBundles[static::BUNDLE_PRODUCT_SKU][static::BUNDLE_ITEMS][$itemKey]->getQuantity());
     }
 
-    /**
-     * @return void
-     */
     public function testSingleItemShouldNotBeAddedToBundle(): void
     {
         // Arrange
@@ -279,9 +264,6 @@ class GetGroupedBundleItemsTest extends Unit
         $this->assertSame(static::PRODUCT_SKU_2, $groupedProductBundles[0]->getSku());
     }
 
-    /**
-     * @return void
-     */
     public function testBundlesWithoutItemsShouldBeRemoved(): void
     {
         // Arrange

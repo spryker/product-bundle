@@ -42,9 +42,6 @@ class ProductBundleStockWriterTest extends Unit
      */
     public const ID_STORE = 1;
 
-    /**
-     * @return void
-     */
     public function testUpdateStockShouldCalculatedStockBasedOnBundledProducts(): void
     {
         $idProductBundle = 1;
@@ -80,9 +77,6 @@ class ProductBundleStockWriterTest extends Unit
         $this->assertTrue($stockTransfer->getQuantity()->equals(7));
     }
 
-    /**
-     * @return void
-     */
     public function testUpdateStockShouldResetStockWhenThereIsNoBundleItems(): void
     {
         $idProductBundle = 1;

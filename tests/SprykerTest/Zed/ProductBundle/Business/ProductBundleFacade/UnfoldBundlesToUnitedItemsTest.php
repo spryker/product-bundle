@@ -117,9 +117,6 @@ class UnfoldBundlesToUnitedItemsTest extends Unit
      */
     protected $tester;
 
-    /**
-     * @return void
-     */
     public function testBundleUnfoldedSuccessfullyWhenPresentInCartChangeItems(): void
     {
         // Arrange
@@ -176,9 +173,6 @@ class UnfoldBundlesToUnitedItemsTest extends Unit
         }
     }
 
-    /**
-     * @return void
-     */
     public function testCartChangeTransferNotChangedWhenNoBundlePresent(): void
     {
         // Arrange
@@ -196,9 +190,6 @@ class UnfoldBundlesToUnitedItemsTest extends Unit
         );
     }
 
-    /**
-     * @return \Generated\Shared\Transfer\CartChangeTransfer
-     */
     protected function setupCartChangeTransferWithBundle(): CartChangeTransfer
     {
         $currencyTransfer = $this->tester->haveCurrencyTransfer([
@@ -246,9 +237,6 @@ class UnfoldBundlesToUnitedItemsTest extends Unit
             ->setItems(new ArrayObject([$itemTransfer]));
     }
 
-    /**
-     * @return \Generated\Shared\Transfer\CartChangeTransfer
-     */
     protected function setupCartChangeTransferWithoutBundle(): CartChangeTransfer
     {
         $currencyTransfer = $this->tester->haveCurrencyTransfer([
@@ -282,12 +270,6 @@ class UnfoldBundlesToUnitedItemsTest extends Unit
             ->setItems(new ArrayObject([$itemTransfer]));
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\StoreTransfer $storeTransfer
-     * @param \Generated\Shared\Transfer\CurrencyTransfer $currencyTransfer
-     *
-     * @return \Generated\Shared\Transfer\QuoteTransfer
-     */
     protected function createQuote(StoreTransfer $storeTransfer, CurrencyTransfer $currencyTransfer): QuoteTransfer
     {
         return (new QuoteTransfer())
@@ -296,14 +278,6 @@ class UnfoldBundlesToUnitedItemsTest extends Unit
             ->setCurrency($currencyTransfer);
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\StoreTransfer $storeTransfer
-     * @param \Generated\Shared\Transfer\CurrencyTransfer $currencyTransfer
-     * @param int $price
-     * @param string $sku
-     *
-     * @return \Generated\Shared\Transfer\ProductConcreteTransfer
-     */
     protected function createProduct(
         StoreTransfer $storeTransfer,
         CurrencyTransfer $currencyTransfer,

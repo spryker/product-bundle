@@ -49,13 +49,6 @@ class ProductBundleCartAvailabilityCheck extends BasePreCheck implements Product
      */
     protected $productBundleReader;
 
-    /**
-     * @param \Spryker\Zed\ProductBundle\Dependency\Facade\ProductBundleToAvailabilityFacadeInterface $availabilityFacade
-     * @param \Spryker\Zed\ProductBundle\Persistence\ProductBundleQueryContainerInterface $productBundleQueryContainer
-     * @param \Spryker\Zed\ProductBundle\Dependency\Facade\ProductBundleToStoreFacadeInterface $storeFacade
-     * @param \Spryker\Zed\ProductBundle\ProductBundleConfig $productBundleConfig
-     * @param \Spryker\Zed\ProductBundle\Business\ProductBundle\ProductBundleReaderInterface $productBundleReader
-     */
     public function __construct(
         ProductBundleToAvailabilityFacadeInterface $availabilityFacade,
         ProductBundleQueryContainerInterface $productBundleQueryContainer,
@@ -135,12 +128,6 @@ class ProductBundleCartAvailabilityCheck extends BasePreCheck implements Product
         return $quantity;
     }
 
-    /**
-     * @param \Spryker\DecimalObject\Decimal $stock
-     * @param string $sku
-     *
-     * @return \Generated\Shared\Transfer\MessageTransfer
-     */
     protected function createItemIsNotAvailableMessageTransfer(Decimal $stock, string $sku): MessageTransfer
     {
         $translationKey = $this->getItemAvailabilityTranslationKey($stock);
@@ -148,13 +135,6 @@ class ProductBundleCartAvailabilityCheck extends BasePreCheck implements Product
         return $this->createCartMessageTransfer($stock, $translationKey, $sku);
     }
 
-    /**
-     * @param \Spryker\DecimalObject\Decimal $stock
-     * @param string $translationKey
-     * @param string $sku
-     *
-     * @return \Generated\Shared\Transfer\MessageTransfer
-     */
     protected function createCartMessageTransfer(Decimal $stock, string $translationKey, string $sku): MessageTransfer
     {
         $messageTransfer = new MessageTransfer();
@@ -167,11 +147,6 @@ class ProductBundleCartAvailabilityCheck extends BasePreCheck implements Product
         return $messageTransfer;
     }
 
-    /**
-     * @param \Spryker\DecimalObject\Decimal $stock
-     *
-     * @return string
-     */
     protected function getItemAvailabilityTranslationKey(Decimal $stock): string
     {
         $translationKey = static::CART_PRE_CHECK_ITEM_AVAILABILITY_FAILED;
@@ -182,12 +157,6 @@ class ProductBundleCartAvailabilityCheck extends BasePreCheck implements Product
         return $translationKey;
     }
 
-    /**
-     * @param string $sku
-     * @param \Generated\Shared\Transfer\StoreTransfer $storeTransfer
-     *
-     * @return \Generated\Shared\Transfer\ProductConcreteAvailabilityTransfer|null
-     */
     protected function findAvailabilityBySku(string $sku, StoreTransfer $storeTransfer): ?ProductConcreteAvailabilityTransfer
     {
         return $this->availabilityFacade
@@ -323,12 +292,6 @@ class ProductBundleCartAvailabilityCheck extends BasePreCheck implements Product
         return $this->createMessageTransfersForUnavailableBundleItems($unavailableBundleItems);
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\ItemTransfer $itemTransfer
-     * @param \Generated\Shared\Transfer\ProductConcreteAvailabilityTransfer $availabilityTransfer
-     *
-     * @return bool
-     */
     protected function isUserRequestedMoreItemsThanInStock(ItemTransfer $itemTransfer, ProductConcreteAvailabilityTransfer $availabilityTransfer): bool
     {
         return $availabilityTransfer->getAvailability()->lessThan($itemTransfer->getQuantity());

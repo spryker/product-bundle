@@ -44,9 +44,6 @@ class PreCheckMocks extends Unit
         return $this->getMockBuilder(ProductBundleToAvailabilityFacadeInterface::class)->getMock();
     }
 
-    /**
-     * @return \Generated\Shared\Transfer\QuoteTransfer
-     */
     protected function createTestQuoteTransfer(): QuoteTransfer
     {
         $quoteTransfer = new QuoteTransfer();

@@ -38,9 +38,6 @@ class ProductBundleCartActiveCheckTest extends Unit
      */
     protected const PRODUCT_SKU_ACTIVE = 'active';
 
-    /**
-     * @return void
-     */
     public function testCheckActiveItemsShouldReturnErrorMessageIfBundleProductIsNotActive(): void
     {
         $productBundleCartActiveCheck = $this->createProductBundleCartActiveCheck(static::PRODUCT_SKU_INACTIVE);
@@ -52,9 +49,6 @@ class ProductBundleCartActiveCheckTest extends Unit
         $this->assertNotEmpty($cartPreCheckResponseTransfer->getMessages());
     }
 
-    /**
-     * @return void
-     */
     public function testCheckActiveItemsShouldReturnNoMessagesIfBundleProductIsActive(): void
     {
         $productBundleCartActiveCheck = $this->createProductBundleCartActiveCheck(static::PRODUCT_SKU_ACTIVE);
@@ -66,11 +60,6 @@ class ProductBundleCartActiveCheckTest extends Unit
         $this->assertEmpty($cartPreCheckResponseTransfer->getMessages());
     }
 
-    /**
-     * @param string $sku
-     *
-     * @return \Generated\Shared\Transfer\CartChangeTransfer
-     */
     protected function createCartChangeTransferWithProduct(string $sku): CartChangeTransfer
     {
         $itemTransfer = (new ItemTransfer())
@@ -80,11 +69,6 @@ class ProductBundleCartActiveCheckTest extends Unit
             ->addItem($itemTransfer);
     }
 
-    /**
-     * @param string $sku
-     *
-     * @return \Spryker\Zed\ProductBundle\Business\ProductBundle\PreCheck\ProductBundleCartActiveCheckInterface
-     */
     protected function createProductBundleCartActiveCheck(string $sku): ProductBundleCartActiveCheckInterface
     {
         return new ProductBundleCartActiveCheck(
@@ -92,11 +76,6 @@ class ProductBundleCartActiveCheckTest extends Unit
         );
     }
 
-    /**
-     * @param string $sku
-     *
-     * @return \Generated\Shared\Transfer\ProductForBundleTransfer
-     */
     protected function createProductForBundleTransfer(string $sku): ProductForBundleTransfer
     {
         return (new ProductForBundleTransfer())

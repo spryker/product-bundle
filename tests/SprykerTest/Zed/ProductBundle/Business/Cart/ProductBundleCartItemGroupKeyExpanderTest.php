@@ -25,9 +25,6 @@ use Spryker\Zed\ProductBundle\Business\ProductBundle\Cart\ProductBundleCartItemG
  */
 class ProductBundleCartItemGroupKeyExpanderTest extends Unit
 {
-    /**
-     * @return void
-     */
     public function testExpandBundleItemGroupKeyShouldIncludeBundledIdentifierIntoGroupKey(): void
     {
         $productBundleCartItemGroupKeyExpander = $this->createGroupKeyExpander();
@@ -48,9 +45,6 @@ class ProductBundleCartItemGroupKeyExpanderTest extends Unit
         $this->assertStringContainsString($itemTransfer->getRelatedBundleItemIdentifier(), $updateBundledItemTransfer->getGroupKey());
     }
 
-    /**
-     * @return void
-     */
     public function testExpandBundleGroupKeyShouldMakeBundledItemsWithSameSkuHaveUniqueGroupKey(): void
     {
         $productBundleCartItemGroupKeyExpander = $this->createGroupKeyExpander();
@@ -77,9 +71,6 @@ class ProductBundleCartItemGroupKeyExpanderTest extends Unit
         $this->assertNotEquals($updateBundledItemTransfer1->getGroupKey(), $updateBundledItemTransfer2->getGroupKey());
     }
 
-    /**
-     * @return \Spryker\Zed\ProductBundle\Business\ProductBundle\Cart\ProductBundleCartItemGroupKeyExpander
-     */
     protected function createGroupKeyExpander(): ProductBundleCartItemGroupKeyExpander
     {
         return new ProductBundleCartItemGroupKeyExpander();

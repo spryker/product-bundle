@@ -74,12 +74,6 @@ class ChangeRequestExpander implements ChangeRequestExpanderInterface
         return $bundledItems;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
-     * @param string $groupKey
-     *
-     * @return int
-     */
     protected function getBundledProductTotalQuantity(QuoteTransfer $quoteTransfer, string $groupKey): int
     {
         $bundleItemQuantity = 0;

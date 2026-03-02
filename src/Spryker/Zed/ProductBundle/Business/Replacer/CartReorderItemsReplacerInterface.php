@@ -11,10 +11,5 @@ use Generated\Shared\Transfer\CartReorderTransfer;
 
 interface CartReorderItemsReplacerInterface
 {
-    /**
-     * @param \Generated\Shared\Transfer\CartReorderTransfer $cartReorderTransfer
-     *
-     * @return \Generated\Shared\Transfer\CartReorderTransfer
-     */
     public function replaceCartReorderItems(CartReorderTransfer $cartReorderTransfer): CartReorderTransfer;
 }

@@ -14,11 +14,6 @@ use Generated\Shared\Transfer\QuoteTransfer;
 
 class BundleItemReplacer implements BundleItemReplacerInterface
 {
-    /**
-     * @param \Generated\Shared\Transfer\CartChangeTransfer $cartChangeTransfer
-     *
-     * @return \Generated\Shared\Transfer\CartChangeTransfer
-     */
     public function replaceBundlesWithUnitedItems(CartChangeTransfer $cartChangeTransfer): CartChangeTransfer
     {
         $itemTransfers = [];
@@ -100,12 +95,6 @@ class BundleItemReplacer implements BundleItemReplacerInterface
         return $bundledItems;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
-     * @param string $groupKey
-     *
-     * @return int
-     */
     protected function getBundledProductTotalQuantity(QuoteTransfer $quoteTransfer, string $groupKey): int
     {
         $bundleItemQuantity = 0;

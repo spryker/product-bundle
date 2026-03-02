@@ -14,11 +14,6 @@ use Generated\Shared\Transfer\ProductOptionTransfer;
 
 class ProductOptionExpander implements ProductOptionExpanderInterface
 {
-    /**
-     * @param \Generated\Shared\Transfer\OrderTransfer $orderTransfer
-     *
-     * @return \Generated\Shared\Transfer\OrderTransfer
-     */
     public function expandOrderProductBundlesWithProductOptions(OrderTransfer $orderTransfer): OrderTransfer
     {
         $expandedProductBundles = new ArrayObject();
@@ -101,12 +96,6 @@ class ProductOptionExpander implements ProductOptionExpanderInterface
         return $productBundles;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\OrderTransfer $orderTransfer
-     * @param \Generated\Shared\Transfer\ItemTransfer $bundleItem
-     *
-     * @return \Generated\Shared\Transfer\ItemTransfer
-     */
     protected function getExpandedBundleItemWithProductOptions(OrderTransfer $orderTransfer, ItemTransfer $bundleItem): ItemTransfer
     {
         foreach ($orderTransfer->getItems() as $itemTransfer) {
@@ -118,12 +107,6 @@ class ProductOptionExpander implements ProductOptionExpanderInterface
         return $bundleItem;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\ItemTransfer $bundleItem
-     * @param \Generated\Shared\Transfer\ItemTransfer $itemTransfer
-     *
-     * @return \Generated\Shared\Transfer\ItemTransfer
-     */
     protected function expandBundleItemWithProductOptions(ItemTransfer $bundleItem, ItemTransfer $itemTransfer): ItemTransfer
     {
         foreach ($itemTransfer->getProductOptions() as $productOptionTransfer) {
@@ -133,12 +116,6 @@ class ProductOptionExpander implements ProductOptionExpanderInterface
         return $bundleItem;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\ItemTransfer $bundleItem
-     * @param \Generated\Shared\Transfer\ProductOptionTransfer $productOptionTransfer
-     *
-     * @return \Generated\Shared\Transfer\ItemTransfer
-     */
     protected function addProductOptionToBundleItem(ItemTransfer $bundleItem, ProductOptionTransfer $productOptionTransfer): ItemTransfer
     {
         if (!$bundleItem->getProductOptions()->count()) {

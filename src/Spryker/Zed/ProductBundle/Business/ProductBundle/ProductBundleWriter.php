@@ -26,10 +26,6 @@ class ProductBundleWriter implements ProductBundleWriterInterface
      */
     protected $productBundleStockWriter;
 
-    /**
-     * @param \Spryker\Zed\ProductBundle\Persistence\ProductBundleQueryContainerInterface $productBundleQueryContainer
-     * @param \Spryker\Zed\ProductBundle\Business\ProductBundle\Stock\ProductBundleStockWriterInterface $productBundleStockWriter
-     */
     public function __construct(
         ProductBundleQueryContainerInterface $productBundleQueryContainer,
         ProductBundleStockWriterInterface $productBundleStockWriter

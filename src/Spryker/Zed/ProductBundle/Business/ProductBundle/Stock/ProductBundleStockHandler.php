@@ -27,10 +27,6 @@ class ProductBundleStockHandler implements ProductBundleStockHandlerInterface
      */
     protected static $bundledItemEntityCache = [];
 
-    /**
-     * @param \Spryker\Zed\ProductBundle\Persistence\ProductBundleQueryContainerInterface $productBundleQueryContainer
-     * @param \Spryker\Zed\ProductBundle\Business\ProductBundle\Stock\ProductBundleStockWriterInterface $productBundleStockWriter
-     */
     public function __construct(
         ProductBundleQueryContainerInterface $productBundleQueryContainer,
         ProductBundleStockWriterInterface $productBundleStockWriter
@@ -39,11 +35,6 @@ class ProductBundleStockHandler implements ProductBundleStockHandlerInterface
         $this->productBundleStockWriter = $productBundleStockWriter;
     }
 
-    /**
-     * @param string $bundledProductSku
-     *
-     * @return void
-     */
     public function updateAffectedBundlesStock(string $bundledProductSku): void
     {
         $bundleProducts = $this->getBundlesUsingProductBySku($bundledProductSku);

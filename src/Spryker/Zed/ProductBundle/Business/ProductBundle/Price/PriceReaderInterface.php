@@ -9,8 +9,5 @@ namespace Spryker\Zed\ProductBundle\Business\ProductBundle\Price;
 
 interface PriceReaderInterface
 {
-    /**
-     * @return string
-     */
     public function getNetPriceModeIdentifier(): string;
 }

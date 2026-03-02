@@ -45,12 +45,6 @@ class ProductBundleReturnCreateFormDataProvider
      */
     public const BUNDLE_PRODUCT = 'bundleProduct';
 
-    /**
-     * @param array $returnCreateFormData
-     * @param \Generated\Shared\Transfer\OrderTransfer $orderTransfer
-     *
-     * @return array
-     */
     public function getData(array $returnCreateFormData, OrderTransfer $orderTransfer): array
     {
         $returnCreateFormData = $this->excludeBundleItems($returnCreateFormData);
@@ -59,11 +53,6 @@ class ProductBundleReturnCreateFormDataProvider
         return $returnCreateFormData;
     }
 
-    /**
-     * @param array $returnCreateFormData
-     *
-     * @return array
-     */
     protected function excludeBundleItems(array $returnCreateFormData): array
     {
         $filteredReturnItems = [];
@@ -87,12 +76,6 @@ class ProductBundleReturnCreateFormDataProvider
         return $returnCreateFormData;
     }
 
-    /**
-     * @param array $returnCreateFormData
-     * @param \Generated\Shared\Transfer\OrderTransfer $orderTransfer
-     *
-     * @return array
-     */
     protected function addReturnBundleItems(array $returnCreateFormData, OrderTransfer $orderTransfer): array
     {
         $returnBundleItems = [];

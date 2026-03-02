@@ -166,16 +166,6 @@ class ProductBundleBusinessTester extends Actor
         return $productConcreteTransfer;
     }
 
-    /**
-     * @param int $price
-     * @param string $sku
-     * @param bool $isActive
-     * @param bool $isNeverOutOfStock
-     * @param int $quantity
-     * @param \Generated\Shared\Transfer\CurrencyTransfer|null $currencyTransfer
-     *
-     * @return \Generated\Shared\Transfer\ProductConcreteTransfer
-     */
     public function createProduct(
         int $price,
         string $sku,
@@ -213,13 +203,6 @@ class ProductBundleBusinessTester extends Actor
         return $productConcreteTransfer;
     }
 
-    /**
-     * @param array $quoteSeed
-     * @param array $itemSeed
-     * @param array $bundleItemSeed
-     *
-     * @return \Generated\Shared\Transfer\QuoteTransfer
-     */
     public function buildQuote(array $quoteSeed, array $itemSeed, array $bundleItemSeed = []): QuoteTransfer
     {
         $quoteBuilder = (new QuoteBuilder($quoteSeed))
@@ -237,11 +220,6 @@ class ProductBundleBusinessTester extends Actor
         return $quoteBuilder->build();
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
-     *
-     * @return \Generated\Shared\Transfer\OrderTransfer
-     */
     public function createOrderFromQuote(QuoteTransfer $quoteTransfer): OrderTransfer
     {
         $saveOrderTransfer = $this->haveOrderFromQuote(
@@ -293,12 +271,6 @@ class ProductBundleBusinessTester extends Actor
         ];
     }
 
-    /**
-     * @param array $bundleItemSeeds
-     * @param array $orderSeed
-     *
-     * @return \Generated\Shared\Transfer\OrderTransfer
-     */
     public function buildOrderTransferWithBundleItems(array $bundleItemSeeds, array $orderSeed = []): OrderTransfer
     {
         $orderBuilder = new OrderBuilder($orderSeed);
@@ -310,17 +282,11 @@ class ProductBundleBusinessTester extends Actor
         return $orderBuilder->build();
     }
 
-    /**
-     * @return void
-     */
     public function cleanProductBundleCache(): void
     {
         (new ProductBundleCache())->cleanCache();
     }
 
-    /**
-     * @return \Generated\Shared\Transfer\QuoteTransfer
-     */
     public function createBaseQuoteTransfer(): QuoteTransfer
     {
         return (new QuoteTransfer())

@@ -60,9 +60,6 @@ class GetProductBundleCollectionByCriteriaFilterTest extends Unit
      */
     protected $tester;
 
-    /**
-     * @return void
-     */
     protected function setUp(): void
     {
         parent::setUp();
@@ -73,9 +70,6 @@ class GetProductBundleCollectionByCriteriaFilterTest extends Unit
         $container->set(static::SERVICE_LOCALE, static::DEFAULT_LOCALE);
     }
 
-    /**
-     * @return void
-     */
     public function testGetProductBundleCollectionByCriteriaFilterWithProductConcreteIdFilter(): void
     {
         // Arrange
@@ -97,9 +91,6 @@ class GetProductBundleCollectionByCriteriaFilterTest extends Unit
         );
     }
 
-    /**
-     * @return void
-     */
     public function testGetProductBundleCollectionByCriteriaFilterWithFakeProductConcreteIdFilter(): void
     {
         // Arrange
@@ -115,9 +106,6 @@ class GetProductBundleCollectionByCriteriaFilterTest extends Unit
         $this->assertEmpty($productBundleTransfers);
     }
 
-    /**
-     * @return void
-     */
     public function testGetProductBundleCollectionByCriteriaFilterWithLimit(): void
     {
         // Arrange
@@ -135,9 +123,6 @@ class GetProductBundleCollectionByCriteriaFilterTest extends Unit
         $this->assertCount(1, $productBundleTransfers);
     }
 
-    /**
-     * @return void
-     */
     public function testGetProductBundleCollectionByCriteriaFilterWithGroupedFilter(): void
     {
         // Arrange
@@ -157,9 +142,6 @@ class GetProductBundleCollectionByCriteriaFilterTest extends Unit
         $this->assertCount(3, $productBundleTransfers->offsetGet(0)->getBundledProducts());
     }
 
-    /**
-     * @return void
-     */
     public function testGetProductBundleCollectionByCriteriaFilterWithBundledProductIdFilter(): void
     {
         // Arrange
@@ -187,9 +169,6 @@ class GetProductBundleCollectionByCriteriaFilterTest extends Unit
         );
     }
 
-    /**
-     * @return void
-     */
     public function testGetProductBundleCollectionByCriteriaFilterWithDifferentBundledProductIdsFilter(): void
     {
         // Arrange
@@ -230,9 +209,6 @@ class GetProductBundleCollectionByCriteriaFilterTest extends Unit
         );
     }
 
-    /**
-     * @return void
-     */
     public function testGetProductBundleCollectionByCriteriaFilterWithIsActiveFilter(): void
     {
         // Arrange

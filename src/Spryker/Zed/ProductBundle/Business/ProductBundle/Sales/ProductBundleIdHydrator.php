@@ -17,9 +17,6 @@ class ProductBundleIdHydrator implements ProductBundleIdHydratorInterface
      */
     protected $productQueryContainer;
 
-    /**
-     * @param \Spryker\Zed\ProductBundle\Dependency\QueryContainer\ProductBundleToProductQueryContainerInterface $productQueryContainer
-     */
     public function __construct(
         ProductBundleToProductQueryContainerInterface $productQueryContainer
     ) {

@@ -47,11 +47,6 @@ class ProductBundleAvailabilityHandler implements ProductBundleAvailabilityHandl
      */
     protected $stockFacade;
 
-    /**
-     * @param \Spryker\Zed\ProductBundle\Dependency\Facade\ProductBundleToAvailabilityFacadeInterface $availabilityFacade
-     * @param \Spryker\Zed\ProductBundle\Persistence\ProductBundleQueryContainerInterface $productBundleQueryContainer
-     * @param \Spryker\Zed\ProductBundle\Dependency\Facade\ProductBundleToStockFacadeInterface $stockFacade
-     */
     public function __construct(
         ProductBundleToAvailabilityFacadeInterface $availabilityFacade,
         ProductBundleQueryContainerInterface $productBundleQueryContainer,
@@ -167,11 +162,6 @@ class ProductBundleAvailabilityHandler implements ProductBundleAvailabilityHandl
         }
     }
 
-    /**
-     * @param string $bundleProductSku
-     *
-     * @return void
-     */
     protected function updateBundleProductAvailabilityForProductWithNotDefinedStock(string $bundleProductSku): void
     {
         $storeTransfers = $this->availabilityFacade->getStoresWhereProductAvailabilityIsDefined($bundleProductSku);
@@ -196,12 +186,6 @@ class ProductBundleAvailabilityHandler implements ProductBundleAvailabilityHandl
             ->findOne();
     }
 
-    /**
-     * @param string $bundledItemSku
-     * @param \Generated\Shared\Transfer\StoreTransfer $storeTransfer
-     *
-     * @return \Generated\Shared\Transfer\ProductConcreteAvailabilityTransfer|null
-     */
     protected function findBundledItemAvailabilityBySku(
         string $bundledItemSku,
         StoreTransfer $storeTransfer
@@ -259,11 +243,6 @@ class ProductBundleAvailabilityHandler implements ProductBundleAvailabilityHandl
         return $bundledProductAvailabilityTransfer->getAvailability()->isZero() && !$bundledProductAvailabilityTransfer->getIsNeverOutOfStock();
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\ProductConcreteAvailabilityTransfer|null $bundledProductAvailabilityTransfer
-     *
-     * @return bool
-     */
     protected function skipBundledItem(?ProductConcreteAvailabilityTransfer $bundledProductAvailabilityTransfer): bool
     {
         if ($bundledProductAvailabilityTransfer === null) {
@@ -273,13 +252,6 @@ class ProductBundleAvailabilityHandler implements ProductBundleAvailabilityHandl
         return $bundledProductAvailabilityTransfer->getIsNeverOutOfStock() ?? false;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\ProductConcreteAvailabilityTransfer|null $bundledProductAvailabilityTransfer
-     * @param \Orm\Zed\ProductBundle\Persistence\SpyProductBundle $bundleItemEntity
-     * @param \Spryker\DecimalObject\Decimal $bundleAvailabilityQuantity
-     *
-     * @return \Spryker\DecimalObject\Decimal
-     */
     protected function calculateBundledItemQuantity(
         ?ProductConcreteAvailabilityTransfer $bundledProductAvailabilityTransfer,
         SpyProductBundle $bundleItemEntity,
@@ -300,12 +272,6 @@ class ProductBundleAvailabilityHandler implements ProductBundleAvailabilityHandl
         return $bundleAvailabilityQuantity;
     }
 
-    /**
-     * @param \Spryker\DecimalObject\Decimal $bundleAvailabilityQuantity
-     * @param \Spryker\DecimalObject\Decimal $bundledItemQuantity
-     *
-     * @return bool
-     */
     protected function isMaxQuantity(Decimal $bundleAvailabilityQuantity, Decimal $bundledItemQuantity): bool
     {
         return $bundleAvailabilityQuantity->greatherThanOrEquals($bundledItemQuantity) || $bundleAvailabilityQuantity->equals(0);

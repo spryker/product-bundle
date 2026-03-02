@@ -36,9 +36,6 @@ class OriginalOrderBundleItemCartPreReorderPluginTest extends Unit
      */
     protected ProductBundleCommunicationTester $tester;
 
-    /**
-     * @return void
-     */
     public function testPreReorderShouldAddOriginalSalesOrderItemsForBundleItems(): void
     {
         // Arrange
@@ -59,9 +56,6 @@ class OriginalOrderBundleItemCartPreReorderPluginTest extends Unit
         $this->assertSame(2, $originalSalesOrderItemTransfers[0]->getQuantity());
     }
 
-    /**
-     * @return void
-     */
     public function testPreReorderShouldDoNothingWhenNoBundleItemsExist(): void
     {
         // Arrange

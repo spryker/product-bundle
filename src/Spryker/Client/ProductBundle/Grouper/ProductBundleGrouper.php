@@ -133,11 +133,6 @@ class ProductBundleGrouper implements ProductBundleGrouperInterface
         return $this->bundleGroupKeys[$bundleItemTransfer->getBundleItemIdentifier()];
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\ItemTransfer $itemTransfer
-     *
-     * @return string
-     */
     protected function buildGroupKey(ItemTransfer $itemTransfer): string
     {
         if ($itemTransfer->getGroupKeyPrefix()) {

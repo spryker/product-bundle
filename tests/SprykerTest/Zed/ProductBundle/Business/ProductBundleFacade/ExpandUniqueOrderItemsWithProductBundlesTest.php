@@ -40,9 +40,6 @@ class ExpandUniqueOrderItemsWithProductBundlesTest extends Unit
      */
     protected $tester;
 
-    /**
-     * @return void
-     */
     public function testExpandUniqueOrderItemsWithProductBundlesCombinesItemsWithBundleItems(): void
     {
         // Arrange
@@ -58,9 +55,6 @@ class ExpandUniqueOrderItemsWithProductBundlesTest extends Unit
         $this->assertCount(4, $itemTransfers);
     }
 
-    /**
-     * @return void
-     */
     public function testExpandUniqueOrderItemsWithProductBundlesWithoutProductBundles(): void
     {
         // Arrange
@@ -77,9 +71,6 @@ class ExpandUniqueOrderItemsWithProductBundlesTest extends Unit
         $this->assertCount(2, $itemTransfers);
     }
 
-    /**
-     * @return \Generated\Shared\Transfer\OrderTransfer
-     */
     protected function createFakeOrder(): OrderTransfer
     {
         $bundleItems = [

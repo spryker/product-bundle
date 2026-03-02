@@ -48,9 +48,6 @@ class ProductBundleToStoreFacadeBridge implements ProductBundleToStoreFacadeInte
         return $this->storeFacade->getAllStores();
     }
 
-    /**
-     * @return bool
-     */
     public function isCurrentStoreDefined(): bool
     {
         return $this->storeFacade->isCurrentStoreDefined();

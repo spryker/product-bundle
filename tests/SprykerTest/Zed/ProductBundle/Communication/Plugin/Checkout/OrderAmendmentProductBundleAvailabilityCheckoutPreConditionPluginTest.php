@@ -40,9 +40,6 @@ class OrderAmendmentProductBundleAvailabilityCheckoutPreConditionPluginTest exte
      */
     protected ProductBundleCommunicationTester $tester;
 
-    /**
-     * @return void
-     */
     public function testCheckConditionReturnsSuccessfulResponseWhenBundleProductIsActive(): void
     {
         // Arrange
@@ -60,9 +57,6 @@ class OrderAmendmentProductBundleAvailabilityCheckoutPreConditionPluginTest exte
         $this->assertTrue($isValid);
     }
 
-    /**
-     * @return void
-     */
     public function testCheckConditionReturnsSuccessfulResponseWhenBundleProductIsNotActive(): void
     {
         // Arrange
@@ -81,9 +75,6 @@ class OrderAmendmentProductBundleAvailabilityCheckoutPreConditionPluginTest exte
         $this->assertFalse($isValid);
     }
 
-    /**
-     * @return void
-     */
     public function testCheckConditionReturnsSuccessfulResponseWhenBundleProductIsNotActiveAndExistsInOriginalSalesOrderItems(): void
     {
         // Arrange

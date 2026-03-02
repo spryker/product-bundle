@@ -33,9 +33,6 @@ class ProductBundleCheckoutAvailabilityCheckTest extends PreCheckMocks
      */
     public const ID_STORE = 1;
 
-    /**
-     * @return void
-     */
     public function testCheckCheckoutAvailabilityWhenAvailabilityExistingShouldReturnEmptyErrorContainer(): void
     {
         $availabilityFacadeMock = $this->createAvailabilityFacadeMock();
@@ -61,9 +58,6 @@ class ProductBundleCheckoutAvailabilityCheckTest extends PreCheckMocks
         $this->assertTrue($checkoutResponseTransfer->getIsSuccess());
     }
 
-    /**
-     * @return void
-     */
     public function testCheckCheckoutAvailabilityWhenAvailabilityNonExistingShouldStoreErrorMessage(): void
     {
         $availabilityFacadeMock = $this->createAvailabilityFacadeMock();

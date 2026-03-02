@@ -206,11 +206,6 @@ class ProductBundleCartAvailabilityCheckTest extends PreCheckMocks
         return $mock;
     }
 
-    /**
-     * @param array $seed
-     *
-     * @return \Generated\Shared\Transfer\ProductForBundleTransfer
-     */
     protected function createProductForBundleTransfer(array $seed): ProductForBundleTransfer
     {
         return (new ProductForBundleBuilder($seed))->build();

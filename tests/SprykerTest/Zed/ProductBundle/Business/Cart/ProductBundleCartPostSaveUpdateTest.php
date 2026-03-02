@@ -25,9 +25,6 @@ use Spryker\Zed\ProductBundle\Business\ProductBundle\Cart\ProductBundleCartPostS
  */
 class ProductBundleCartPostSaveUpdateTest extends Unit
 {
-    /**
-     * @return void
-     */
     public function testUpdateBundlesShouldRemoveStaleBundles(): void
     {
         $productBundlesCartPostSaveUpdate = new ProductBundleCartPostSaveUpdate();

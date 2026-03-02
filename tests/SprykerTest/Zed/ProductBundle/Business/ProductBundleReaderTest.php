@@ -54,9 +54,6 @@ class ProductBundleReaderTest extends Unit
         'idProductBundle' => 1,
     ];
 
-    /**
-     * @return void
-     */
     public function testFindBundledProductsByIdProductConcreteShouldBuildTransferCollectionFromPersistence(): void
     {
         $productBundleReaderMock = $this->createProductBundleReader();
@@ -72,9 +69,6 @@ class ProductBundleReaderTest extends Unit
         $this->assertSame($this->fixtures['idProductBundle'], $productForBundleTransfer->getIdProductBundle());
     }
 
-    /**
-     * @return void
-     */
     public function testAssignBundledProductsToProductConcreteShouldAssignBundledProductsAndAvailability(): void
     {
         // Arrange
@@ -219,12 +213,6 @@ class ProductBundleReaderTest extends Unit
         return $this->getMockBuilder(ProductBundleToStoreFacadeInterface::class)->getMock();
     }
 
-    /**
-     * @param array $fixtures
-     * @param \PHPUnit\Framework\MockObject\MockObject $productBundleReaderMock
-     *
-     * @return void
-     */
     protected function setupFindBundledProducts(array $fixtures, MockObject $productBundleReaderMock): void
     {
         $productBundleEntity = new SpyProductBundle();
@@ -245,9 +233,6 @@ class ProductBundleReaderTest extends Unit
             ->willReturn([$productBundleEntity]);
     }
 
-    /**
-     * @return \Spryker\Zed\ProductBundle\Business\ProductBundle\Cache\ProductBundleCacheInterface
-     */
     protected function createProductBundleCache(): ProductBundleCacheInterface
     {
         return new ProductBundleCache();

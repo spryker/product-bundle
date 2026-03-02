@@ -11,10 +11,5 @@ use Generated\Shared\Transfer\QuoteTransfer;
 
 interface ItemQuantityCounterInterface
 {
-    /**
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
-     *
-     * @return int
-     */
     public function getItemCount(QuoteTransfer $quoteTransfer): int;
 }

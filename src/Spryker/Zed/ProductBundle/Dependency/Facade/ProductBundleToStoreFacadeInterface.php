@@ -14,9 +14,6 @@ interface ProductBundleToStoreFacadeInterface
      */
     public function getCurrentStore();
 
-    /**
-     * @return bool
-     */
     public function isCurrentStoreDefined(): bool;
 
     /**

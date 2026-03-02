@@ -48,11 +48,6 @@ class ProductBundleCache implements ProductBundleCacheInterface
         }
     }
 
-    /**
-     * @param string $sku
-     *
-     * @return bool
-     */
     public function hasProductForBundleTransfersBySku(string $sku): bool
     {
         return isset(static::$groupedBySkuProductForBundleTransfers[$sku]);
@@ -74,19 +69,11 @@ class ProductBundleCache implements ProductBundleCacheInterface
         return static::$groupedBySkuProductForBundleTransfers[$sku];
     }
 
-    /**
-     * @return void
-     */
     public function cleanCache(): void
     {
         static::$groupedBySkuProductForBundleTransfers = [];
     }
 
-    /**
-     * @param string $sku
-     *
-     * @return void
-     */
     protected function cacheEmptyProductForBundleTransfersBySku(string $sku): void
     {
         if (!isset(static::$groupedBySkuProductForBundleTransfers[$sku])) {

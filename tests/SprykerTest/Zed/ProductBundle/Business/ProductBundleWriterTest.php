@@ -30,9 +30,6 @@ use Spryker\Zed\ProductBundle\Persistence\ProductBundleQueryContainerInterface;
  */
 class ProductBundleWriterTest extends Unit
 {
-    /**
-     * @return void
-     */
     public function testSaveBundledProductsShouldPersistGivenBundles(): void
     {
         $idBundledProductToRemove = 3;

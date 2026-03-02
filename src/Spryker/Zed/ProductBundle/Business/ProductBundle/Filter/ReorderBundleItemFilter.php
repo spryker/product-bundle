@@ -53,12 +53,6 @@ class ReorderBundleItemFilter implements ReorderBundleItemFilterInterface
         return $bundleItemTransfers;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\OrderTransfer $orderTransfer
-     * @param string $bundleItemIdentifier
-     *
-     * @return \Generated\Shared\Transfer\ItemTransfer|null
-     */
     protected function extractBundleItemTransferByBundleItemIdentifier(
         OrderTransfer $orderTransfer,
         string $bundleItemIdentifier

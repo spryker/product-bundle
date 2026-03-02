@@ -14,11 +14,6 @@ use Generated\Shared\Transfer\OrderTransfer;
 
 class CartReorderItemsReplacer implements CartReorderItemsReplacerInterface
 {
-    /**
-     * @param \Generated\Shared\Transfer\CartReorderTransfer $cartReorderTransfer
-     *
-     * @return \Generated\Shared\Transfer\CartReorderTransfer
-     */
     public function replaceCartReorderItems(CartReorderTransfer $cartReorderTransfer): CartReorderTransfer
     {
         $productBundleItems = $this->extractProductBundleItemsFromOrderTransfer($cartReorderTransfer->getOrderOrFail());
@@ -118,12 +113,6 @@ class CartReorderItemsReplacer implements CartReorderItemsReplacerInterface
         return false;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\CartReorderTransfer $cartReorderTransfer
-     * @param string $bundleItemIdentifier
-     *
-     * @return \Generated\Shared\Transfer\CartReorderTransfer
-     */
     protected function removeRelatedBundledItems(CartReorderTransfer $cartReorderTransfer, string $bundleItemIdentifier): CartReorderTransfer
     {
         $bundledItemIndexes = [];

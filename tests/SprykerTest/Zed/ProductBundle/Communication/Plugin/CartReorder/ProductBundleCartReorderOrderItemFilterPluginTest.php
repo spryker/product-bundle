@@ -34,9 +34,6 @@ class ProductBundleCartReorderOrderItemFilterPluginTest extends Unit
      */
     protected ProductBundleCommunicationTester $tester;
 
-    /**
-     * @return void
-     */
     public function testShouldReplaceFilterItemsToBundleItems(): void
     {
         // Arrange
@@ -78,9 +75,6 @@ class ProductBundleCartReorderOrderItemFilterPluginTest extends Unit
         $this->assertCount(1, $filteredItems);
     }
 
-    /**
-     * @return void
-     */
     public function testShouldAppendFilterItemsWithBundleItems(): void
     {
         // Arrange

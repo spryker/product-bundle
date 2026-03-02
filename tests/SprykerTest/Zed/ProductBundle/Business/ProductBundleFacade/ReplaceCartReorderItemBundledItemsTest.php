@@ -39,9 +39,6 @@ class ReplaceCartReorderItemBundledItemsTest extends Unit
      */
     protected ProductBundleBusinessTester $tester;
 
-    /**
-     * @return void
-     */
     public function testReplacesBundledItemsWithProductBundleItem(): void
     {
         // Arrange
@@ -72,9 +69,6 @@ class ReplaceCartReorderItemBundledItemsTest extends Unit
         $this->assertEquals(1, $orderItemTransfer->getQuantity());
     }
 
-    /**
-     * @return void
-     */
     public function testDoesNothingWhenNoBundledItemsProvided(): void
     {
         // Arrange
@@ -101,9 +95,6 @@ class ReplaceCartReorderItemBundledItemsTest extends Unit
         $this->assertCount(2, $cartReorderTransfer->getOrderOrFail()->getItems());
     }
 
-    /**
-     * @return void
-     */
     public function testDoesNothingWhenBundledItemsNotProvidedInCartReorderOrderItems(): void
     {
         // Arrange
@@ -221,11 +212,6 @@ class ReplaceCartReorderItemBundledItemsTest extends Unit
         ];
     }
 
-    /**
-     * @param int $idSalesOrderItem
-     *
-     * @return \Generated\Shared\Transfer\ItemTransfer
-     */
     protected function createOrderItemTransfer(int $idSalesOrderItem): ItemTransfer
     {
         return (new ItemBuilder([

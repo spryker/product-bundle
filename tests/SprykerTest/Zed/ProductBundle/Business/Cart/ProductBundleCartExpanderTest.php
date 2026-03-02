@@ -55,9 +55,6 @@ class ProductBundleCartExpanderTest extends Unit
         'idProductBundle' => 1,
     ];
 
-    /**
-     * @return void
-     */
     public function testExpandBundleItemsShouldExtractBundledItemsAndDistributeBundlePrice(): void
     {
         $productExpanderMock = $this->setupProductExpander();
@@ -100,9 +97,6 @@ class ProductBundleCartExpanderTest extends Unit
         $this->assertSame($bundleItemTransfer->getBundleItemIdentifier(), $bundledItemTransfer->getRelatedBundleItemIdentifier());
     }
 
-    /**
-     * @return void
-     */
     public function testExpandBundleItemsShouldCopyShipmentMethodFromBundleItemToBundledItems(): void
     {
         // Arrange
@@ -142,9 +136,6 @@ class ProductBundleCartExpanderTest extends Unit
         );
     }
 
-    /**
-     * @return void
-     */
     public function testExpandBundleItemsShouldSkipCopyFromBundleItemToBundledItems(): void
     {
         // Arrange
@@ -208,11 +199,6 @@ class ProductBundleCartExpanderTest extends Unit
         );
     }
 
-    /**
-     * @param \Spryker\Zed\ProductBundle\ProductBundleConfig|null $productBundleConfigMock
-     *
-     * @return \Spryker\Zed\ProductBundle\Business\ProductBundle\Cart\ProductBundleCartExpander
-     */
     protected function setupProductExpander(?ProductBundleConfig $productBundleConfigMock = null): ProductBundleCartExpander
     {
         $productFacadeMock = $this->createProductFacadeMock();
@@ -239,9 +225,6 @@ class ProductBundleCartExpanderTest extends Unit
         return $productExpanderMock;
     }
 
-    /**
-     * @return \Generated\Shared\Transfer\CartChangeTransfer
-     */
     protected function createCartChangeTransfer(): CartChangeTransfer
     {
         $cartChangeTransfer = new CartChangeTransfer();
@@ -339,9 +322,6 @@ class ProductBundleCartExpanderTest extends Unit
         return $this->getMockBuilder(PriceReaderInterface::class)->getMock();
     }
 
-    /**
-     * @return \Generated\Shared\Transfer\ProductForBundleTransfer
-     */
     protected function createProductForBundleTransfer(): ProductForBundleTransfer
     {
         return (new ProductForBundleTransfer())

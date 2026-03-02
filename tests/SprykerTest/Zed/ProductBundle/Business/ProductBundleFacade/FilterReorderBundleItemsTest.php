@@ -32,9 +32,6 @@ class FilterReorderBundleItemsTest extends Unit
      */
     protected ProductBundleBusinessTester $tester;
 
-    /**
-     * @return void
-     */
     public function testShouldFilterReorderBundleItemsByBundleItemIdentifier(): void
     {
         // Arrange
@@ -64,9 +61,6 @@ class FilterReorderBundleItemsTest extends Unit
         $this->assertSame(2, $itemTransfers[0]->getIdSalesOrderItem());
     }
 
-    /**
-     * @return void
-     */
     public function testShouldNotFilterReorderBundleItemsByWrongBundleItemIdentifier(): void
     {
         // Arrange

@@ -19,11 +19,6 @@ interface ProductBundleRepositoryInterface
      */
     public function findBundledProductsBySku(string $sku): array;
 
-    /**
-     * @param \Generated\Shared\Transfer\ProductBundleCriteriaFilterTransfer $productBundleCriteriaFilterTransfer
-     *
-     * @return \Generated\Shared\Transfer\ProductBundleCollectionTransfer
-     */
     public function getProductBundleCollectionByCriteriaFilter(
         ProductBundleCriteriaFilterTransfer $productBundleCriteriaFilterTransfer
     ): ProductBundleCollectionTransfer;

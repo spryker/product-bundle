@@ -47,11 +47,6 @@ class ProductBundleRepository extends AbstractRepository implements ProductBundl
             ->mapProductBundleEntitiesToProductForBundleTransfers($productBundleEntities->getArrayCopy());
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\ProductBundleCriteriaFilterTransfer $productBundleCriteriaFilterTransfer
-     *
-     * @return \Generated\Shared\Transfer\ProductBundleCollectionTransfer
-     */
     public function getProductBundleCollectionByCriteriaFilter(
         ProductBundleCriteriaFilterTransfer $productBundleCriteriaFilterTransfer
     ): ProductBundleCollectionTransfer {
@@ -75,12 +70,6 @@ class ProductBundleRepository extends AbstractRepository implements ProductBundl
             ->mapProductBundleEntityCollectionToProductBundleCollectionTransfer($productBundleEntities, new ProductBundleCollectionTransfer());
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\ProductBundleCriteriaFilterTransfer $productBundleCriteriaFilterTransfer
-     * @param \Orm\Zed\ProductBundle\Persistence\SpyProductBundleQuery $productBundleQuery
-     *
-     * @return void
-     */
     protected function applyFilters(
         ProductBundleCriteriaFilterTransfer $productBundleCriteriaFilterTransfer,
         SpyProductBundleQuery $productBundleQuery

@@ -32,9 +32,6 @@ use Spryker\Zed\ProductBundle\Persistence\ProductBundleQueryContainerInterface;
  */
 class ProductBundleSalesOrderSaverTest extends Unit
 {
-    /**
-     * @return void
-     */
     public function testSaveSaleOrderBundleItemsShouldPersistGivenBundleItems(): void
     {
         $productBundleMock = $this->createProductBundleSalesOrderSaverMock();

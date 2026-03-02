@@ -11,10 +11,5 @@ use Generated\Shared\Transfer\CartChangeTransfer;
 
 interface BundleItemReplacerInterface
 {
-    /**
-     * @param \Generated\Shared\Transfer\CartChangeTransfer $cartChangeTransfer
-     *
-     * @return \Generated\Shared\Transfer\CartChangeTransfer
-     */
     public function replaceBundlesWithUnitedItems(CartChangeTransfer $cartChangeTransfer): CartChangeTransfer;
 }

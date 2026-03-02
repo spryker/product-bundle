@@ -11,10 +11,5 @@ use Generated\Shared\Transfer\QuoteTransfer;
 
 interface OriginalOrderBundleItemFilterInterface
 {
-    /**
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
-     *
-     * @return \Generated\Shared\Transfer\QuoteTransfer
-     */
     public function filterOriginalSalesOrderItems(QuoteTransfer $quoteTransfer): QuoteTransfer;
 }

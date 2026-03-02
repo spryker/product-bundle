@@ -56,12 +56,6 @@ class BasePreCheck
      */
     protected $productBundleConfig;
 
-    /**
-     * @param \Spryker\Zed\ProductBundle\Dependency\Facade\ProductBundleToAvailabilityFacadeInterface $availabilityFacade
-     * @param \Spryker\Zed\ProductBundle\Persistence\ProductBundleQueryContainerInterface $productBundleQueryContainer
-     * @param \Spryker\Zed\ProductBundle\Dependency\Facade\ProductBundleToStoreFacadeInterface $storeFacade
-     * @param \Spryker\Zed\ProductBundle\ProductBundleConfig $productBundleConfig
-     */
     public function __construct(
         ProductBundleToAvailabilityFacadeInterface $availabilityFacade,
         ProductBundleQueryContainerInterface $productBundleQueryContainer,
@@ -176,11 +170,6 @@ class BasePreCheck
         return $quantity;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\ItemTransfer $itemTransfer
-     *
-     * @return bool
-     */
     protected function isProductBundle(ItemTransfer $itemTransfer): bool
     {
         if ($itemTransfer->getBundleItemIdentifier() !== null) {
@@ -192,14 +181,6 @@ class BasePreCheck
             ->exists();
     }
 
-    /**
-     * @param string $sku
-     * @param \Spryker\DecimalObject\Decimal $quantity
-     * @param \Generated\Shared\Transfer\StoreTransfer $storeTransfer
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
-     *
-     * @return bool
-     */
     protected function checkAvailabilityInBatch(
         string $sku,
         Decimal $quantity,

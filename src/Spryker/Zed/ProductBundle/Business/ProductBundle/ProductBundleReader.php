@@ -45,13 +45,6 @@ class ProductBundleReader implements ProductBundleReaderInterface
      */
     protected $productBundleCache;
 
-    /**
-     * @param \Spryker\Zed\ProductBundle\Persistence\ProductBundleQueryContainerInterface $productBundleQueryContainer
-     * @param \Spryker\Zed\ProductBundle\Dependency\Facade\ProductBundleToAvailabilityFacadeInterface $availabilityFacade
-     * @param \Spryker\Zed\ProductBundle\Dependency\Facade\ProductBundleToStoreFacadeInterface $storeFacade
-     * @param \Spryker\Zed\ProductBundle\Persistence\ProductBundleRepositoryInterface $productBundleRepository
-     * @param \Spryker\Zed\ProductBundle\Business\ProductBundle\Cache\ProductBundleCacheInterface $productBundleCache
-     */
     public function __construct(
         ProductBundleQueryContainerInterface $productBundleQueryContainer,
         ProductBundleToAvailabilityFacadeInterface $availabilityFacade,
@@ -153,11 +146,6 @@ class ProductBundleReader implements ProductBundleReaderInterface
             ->find();
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\ProductConcreteTransfer $productConcreteTransfer
-     *
-     * @return \Generated\Shared\Transfer\ProductConcreteAvailabilityTransfer|null
-     */
     protected function findProductConcreteAvailabilityBySkuForStore(ProductConcreteTransfer $productConcreteTransfer): ?ProductConcreteAvailabilityTransfer
     {
         $storeTransfer = $this->storeFacade->getCurrentStore();

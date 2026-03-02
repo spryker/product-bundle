@@ -181,11 +181,6 @@ class ProductBundleCheckoutAvailabilityCheck extends BasePreCheck implements Pro
         return new ArrayObject($processedErrorMessages);
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\CheckoutErrorTransfer $availabilityErrorMessage
-     *
-     * @return bool
-     */
     protected function isAvailabilityErrorMessage(CheckoutErrorTransfer $availabilityErrorMessage): bool
     {
         return $availabilityErrorMessage->getErrorType() === $this->productBundleConfig->getAvailabilityErrorType();
@@ -217,11 +212,6 @@ class ProductBundleCheckoutAvailabilityCheck extends BasePreCheck implements Pro
         return false;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\CheckoutErrorTransfer $availabilityErrorMessage
-     *
-     * @return string|null
-     */
     protected function findAvailabilityErrorMessageSku(CheckoutErrorTransfer $availabilityErrorMessage): ?string
     {
         $availabilityErrorMessageParameters = $availabilityErrorMessage->getParameters();
@@ -230,11 +220,6 @@ class ProductBundleCheckoutAvailabilityCheck extends BasePreCheck implements Pro
         return $availabilityErrorMessageParameters[$availabilityProductSkuParameter] ?? null;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\CheckoutErrorTransfer $productBundleErrorMessage
-     *
-     * @return string
-     */
     protected function getProductBundleErrorMessageProductSku(CheckoutErrorTransfer $productBundleErrorMessage): string
     {
         $productBundleErrorMessageParameters = $productBundleErrorMessage->getParameters();

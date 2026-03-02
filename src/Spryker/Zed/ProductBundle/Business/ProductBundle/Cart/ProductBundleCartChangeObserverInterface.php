@@ -11,11 +11,5 @@ use Generated\Shared\Transfer\QuoteTransfer;
 
 interface ProductBundleCartChangeObserverInterface
 {
-    /**
-     * @param \Generated\Shared\Transfer\QuoteTransfer $resultQuoteTransfer
-     * @param \Generated\Shared\Transfer\QuoteTransfer $sourceQuoteTransfer
-     *
-     * @return void
-     */
     public function checkBundleItemsChanges(QuoteTransfer $resultQuoteTransfer, QuoteTransfer $sourceQuoteTransfer): void;
 }

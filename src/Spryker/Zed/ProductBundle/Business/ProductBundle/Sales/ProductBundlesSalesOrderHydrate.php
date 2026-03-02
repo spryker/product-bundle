@@ -25,10 +25,6 @@ class ProductBundlesSalesOrderHydrate implements ProductBundlesSalesOrderHydrate
      */
     protected $productBundlePriceCalculation;
 
-    /**
-     * @param \Spryker\Zed\ProductBundle\Dependency\QueryContainer\ProductBundleToSalesQueryContainerInterface $salesQueryContainer
-     * @param \Spryker\Zed\ProductBundle\Business\ProductBundle\Calculation\ProductBundlePriceCalculationInterface $productBundlePriceCalculation
-     */
     public function __construct(
         ProductBundleToSalesQueryContainerInterface $salesQueryContainer,
         ProductBundlePriceCalculationInterface $productBundlePriceCalculation

@@ -30,11 +30,6 @@ class ProductBundleCartPriceChecker implements ProductBundleCartPriceCheckerInte
      */
     protected const TRANSLATION_PARAMETER_SKU = '%sku%';
 
-    /**
-     * @param \Spryker\Zed\ProductBundle\Persistence\ProductBundleRepositoryInterface $productBundleRepository
-     * @param \Spryker\Zed\ProductBundle\Dependency\Facade\ProductBundleToPriceProductFacadeInterface $priceProductFacade
-     * @param \Spryker\Zed\ProductBundle\Business\ProductBundle\ProductBundleReaderInterface $productBundleReader
-     */
     public function __construct(
         protected ProductBundleRepositoryInterface $productBundleRepository,
         protected ProductBundleToPriceProductFacadeInterface $priceProductFacade,
@@ -42,11 +37,6 @@ class ProductBundleCartPriceChecker implements ProductBundleCartPriceCheckerInte
     ) {
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\CartChangeTransfer $cartChangeTransfer
-     *
-     * @return \Generated\Shared\Transfer\CartPreCheckResponseTransfer
-     */
     public function checkCartPrices(CartChangeTransfer $cartChangeTransfer): CartPreCheckResponseTransfer
     {
         $cartPreCheckResponseTransfer = (new CartPreCheckResponseTransfer())
@@ -71,12 +61,6 @@ class ProductBundleCartPriceChecker implements ProductBundleCartPriceCheckerInte
         return $cartPreCheckResponseTransfer;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\ProductForBundleTransfer $productForBundleTransfer
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
-     *
-     * @return \Generated\Shared\Transfer\PriceProductFilterTransfer
-     */
     protected function createPriceProductFilter(
         ProductForBundleTransfer $productForBundleTransfer,
         QuoteTransfer $quoteTransfer
@@ -91,13 +75,6 @@ class ProductBundleCartPriceChecker implements ProductBundleCartPriceCheckerInte
         return $priceProductFilterTransfer;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\ItemTransfer $itemTransfer
-     * @param \Generated\Shared\Transfer\CartPreCheckResponseTransfer $cartPreCheckResponseTransfer
-     * @param \Generated\Shared\Transfer\CartChangeTransfer $cartChangeTransfer
-     *
-     * @return \Generated\Shared\Transfer\CartPreCheckResponseTransfer
-     */
     protected function checkItemPrice(
         ItemTransfer $itemTransfer,
         CartPreCheckResponseTransfer $cartPreCheckResponseTransfer,
@@ -119,11 +96,6 @@ class ProductBundleCartPriceChecker implements ProductBundleCartPriceCheckerInte
         return $cartPreCheckResponseTransfer;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\ProductForBundleTransfer $productForBundleTransfer
-     *
-     * @return \Generated\Shared\Transfer\MessageTransfer
-     */
     protected function createMessage(ProductForBundleTransfer $productForBundleTransfer): MessageTransfer
     {
         return (new MessageTransfer())

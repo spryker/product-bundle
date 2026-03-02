@@ -22,25 +22,16 @@ use Symfony\Component\Form\FormTypeInterface;
  */
 class ProductBundleCommunicationFactory extends AbstractCommunicationFactory
 {
-    /**
-     * @return \Symfony\Component\Form\FormTypeInterface
-     */
     public function createReturnCreateBundleForm(): FormTypeInterface
     {
         return new ReturnCreateBundleForm();
     }
 
-    /**
-     * @return \Spryker\Zed\ProductBundle\Communication\Form\DataProvider\ProductBundleReturnCreateFormDataProvider
-     */
     public function createProductBundleReturnCreateFormDataProvider(): ProductBundleReturnCreateFormDataProvider
     {
         return new ProductBundleReturnCreateFormDataProvider();
     }
 
-    /**
-     * @return \Spryker\Zed\ProductBundle\Communication\Form\Handler\ProductBundleReturnCreateFormHandlerInterface
-     */
     public function createProductBundleReturnCreateFormHandler(): ProductBundleReturnCreateFormHandlerInterface
     {
         return new ProductBundleReturnCreateFormHandler();

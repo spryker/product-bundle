@@ -134,9 +134,6 @@ class ProductBundleHelper extends Module
         return $productConcreteTransfer;
     }
 
-    /**
-     * @return \SprykerTest\Shared\Currency\Helper\CurrencyDataHelper
-     */
     protected function getCurrencyDataHelper(): CurrencyDataHelper
     {
         /** @var \SprykerTest\Shared\Currency\Helper\CurrencyDataHelper $helper */
@@ -145,9 +142,6 @@ class ProductBundleHelper extends Module
         return $helper;
     }
 
-    /**
-     * @return \SprykerTest\Shared\Store\Helper\StoreDataHelper
-     */
     protected function getStoreDataHelper(): StoreDataHelper
     {
         /** @var \SprykerTest\Shared\Store\Helper\StoreDataHelper $helper */
@@ -156,9 +150,6 @@ class ProductBundleHelper extends Module
         return $helper;
     }
 
-    /**
-     * @return \SprykerTest\Shared\Product\Helper\ProductDataHelper
-     */
     protected function getProductDataHelper(): ProductDataHelper
     {
         /** @var \SprykerTest\Shared\Product\Helper\ProductDataHelper $helper */
@@ -167,9 +158,6 @@ class ProductBundleHelper extends Module
         return $helper;
     }
 
-    /**
-     * @return \SprykerTest\Shared\Stock\Helper\StockDataHelper
-     */
     protected function getStockDataHelper(): StockDataHelper
     {
         /** @var \SprykerTest\Shared\Stock\Helper\StockDataHelper $helper */
@@ -178,9 +166,6 @@ class ProductBundleHelper extends Module
         return $helper;
     }
 
-    /**
-     * @return \SprykerTest\Shared\Availability\Helper\AvailabilityDataHelper
-     */
     protected function getAvailabilityDataHelper(): AvailabilityDataHelper
     {
         /** @var \SprykerTest\Shared\Availability\Helper\AvailabilityDataHelper $helper */
@@ -189,9 +174,6 @@ class ProductBundleHelper extends Module
         return $helper;
     }
 
-    /**
-     * @return \SprykerTest\Shared\PriceProduct\Helper\PriceProductDataHelper
-     */
     protected function getPriceProductDataHelper(): PriceProductDataHelper
     {
         /** @var \SprykerTest\Shared\PriceProduct\Helper\PriceProductDataHelper $helper */

@@ -123,11 +123,6 @@ class ProductBundleMapper
         return $productForBundleTransfers;
     }
 
-    /**
-     * @param \Orm\Zed\ProductBundle\Persistence\SpySalesOrderItemBundle $salesOrderItemBundleEntity
-     *
-     * @return \Generated\Shared\Transfer\ItemTransfer
-     */
     protected function mapSalesOrderItemBundleEntityToItemTransfer(SpySalesOrderItemBundle $salesOrderItemBundleEntity): ItemTransfer
     {
         $productMetadataTransfer = (new ItemMetadataTransfer())

@@ -12,13 +12,6 @@ use Generated\Shared\Transfer\QuoteTransfer;
 
 class QuoteItemFinder implements QuoteItemFinderInterface
 {
-    /**
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
-     * @param string $sku
-     * @param string|null $groupKey
-     *
-     * @return \Generated\Shared\Transfer\ItemTransfer|null
-     */
     public function findItem(QuoteTransfer $quoteTransfer, string $sku, ?string $groupKey = null): ?ItemTransfer
     {
         $itemTransfer = null;
@@ -52,12 +45,6 @@ class QuoteItemFinder implements QuoteItemFinderInterface
         return null;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
-     * @param string $groupKey
-     *
-     * @return int
-     */
     protected function getBundledProductTotalQuantity(QuoteTransfer $quoteTransfer, string $groupKey): int
     {
         $bundleItemQuantity = 0;
@@ -71,13 +58,6 @@ class QuoteItemFinder implements QuoteItemFinderInterface
         return $bundleItemQuantity;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
-     * @param string $sku
-     * @param string|null $groupKey
-     *
-     * @return \Generated\Shared\Transfer\ItemTransfer|null
-     */
     protected function findQuoteItem(QuoteTransfer $quoteTransfer, string $sku, ?string $groupKey = null): ?ItemTransfer
     {
         foreach ($quoteTransfer->getItems() as $itemTransfer) {

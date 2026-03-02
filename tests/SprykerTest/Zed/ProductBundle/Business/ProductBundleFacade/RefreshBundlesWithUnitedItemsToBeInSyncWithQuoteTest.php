@@ -49,9 +49,6 @@ class RefreshBundlesWithUnitedItemsToBeInSyncWithQuoteTest extends Unit
      */
     protected $tester;
 
-    /**
-     * @return void
-     */
     public function testBundlesUpToDateWhenRefreshed(): void
     {
         // Arrange
@@ -76,9 +73,6 @@ class RefreshBundlesWithUnitedItemsToBeInSyncWithQuoteTest extends Unit
         );
     }
 
-    /**
-     * @return void
-     */
     public function testQuoteNotChangedWhenNoBundles(): void
     {
         // Arrange
@@ -96,11 +90,6 @@ class RefreshBundlesWithUnitedItemsToBeInSyncWithQuoteTest extends Unit
         );
     }
 
-    /**
-     * @param array $fixtures
-     *
-     * @return \Generated\Shared\Transfer\QuoteTransfer
-     */
     protected function createQuoteTransfer(array $fixtures): QuoteTransfer
     {
         $cartChangeTransfer = new QuoteTransfer();
@@ -109,9 +98,6 @@ class RefreshBundlesWithUnitedItemsToBeInSyncWithQuoteTest extends Unit
         return $cartChangeTransfer;
     }
 
-    /**
-     * @return array
-     */
     protected function getQuoteTransferFixturesWithBundle(): array
     {
         return [
@@ -139,9 +125,6 @@ class RefreshBundlesWithUnitedItemsToBeInSyncWithQuoteTest extends Unit
         ];
     }
 
-    /**
-     * @return array
-     */
     protected function getQuoteTransferFixturesWithoutBundle(): array
     {
         return [

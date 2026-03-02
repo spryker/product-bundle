@@ -23,9 +23,6 @@ class ProductBundleOrderSaver implements ProductBundleOrderSaverInterface
      */
     protected $salesQueryContainer;
 
-    /**
-     * @param \Spryker\Zed\ProductBundle\Dependency\QueryContainer\ProductBundleToSalesQueryContainerInterface $salesQueryContainer
-     */
     public function __construct(ProductBundleToSalesQueryContainerInterface $salesQueryContainer)
     {
         $this->salesQueryContainer = $salesQueryContainer;

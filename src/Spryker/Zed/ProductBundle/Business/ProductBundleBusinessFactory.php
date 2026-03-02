@@ -101,9 +101,6 @@ class ProductBundleBusinessFactory extends AbstractBusinessFactory
         );
     }
 
-    /**
-     * @return \Spryker\Zed\ProductBundle\Business\ProductBundle\Price\PriceReaderInterface
-     */
     public function createPriceReader(): PriceReaderInterface
     {
         return new PriceReaderWithCache(
@@ -126,9 +123,6 @@ class ProductBundleBusinessFactory extends AbstractBusinessFactory
         );
     }
 
-    /**
-     * @return \Spryker\Zed\ProductBundle\Business\ProductBundle\Cart\BundleItemUnfolderInterface
-     */
     public function createBundleItemUnfolder(): BundleItemUnfolderInterface
     {
         return new BundleItemUnfolder(
@@ -190,9 +184,6 @@ class ProductBundleBusinessFactory extends AbstractBusinessFactory
         return new ProductBundleCartPostSaveUpdate();
     }
 
-    /**
-     * @return \Spryker\Zed\ProductBundle\Business\ProductBundle\Cart\BundleRefresherInterface
-     */
     public function createBundleItemRefresher(): BundleRefresherInterface
     {
         return new BundleItemRefresher();
@@ -212,9 +203,6 @@ class ProductBundleBusinessFactory extends AbstractBusinessFactory
         );
     }
 
-    /**
-     * @return \Spryker\Zed\ProductBundle\Business\ProductBundle\PreCheck\ProductBundleCartActiveCheckInterface
-     */
     public function createProductBundleCartActiveCheck(): ProductBundleCartActiveCheckInterface
     {
         return new ProductBundleCartActiveCheck(
@@ -222,9 +210,6 @@ class ProductBundleBusinessFactory extends AbstractBusinessFactory
         );
     }
 
-    /**
-     * @return \Spryker\Zed\ProductBundle\Business\ProductBundle\CartPriceCheck\ProductBundleCartPriceCheckerInterface
-     */
     public function createProductBundleCartPricePreCheck(): ProductBundleCartPriceCheckerInterface
     {
         return new ProductBundleCartPriceChecker(
@@ -259,9 +244,6 @@ class ProductBundleBusinessFactory extends AbstractBusinessFactory
         );
     }
 
-    /**
-     * @return \Spryker\Zed\ProductBundle\Business\ProductBundle\Status\ProductBundleStatusUpdaterInterface
-     */
     public function createProductBundleStatusUpdater(): ProductBundleStatusUpdaterInterface
     {
         return new ProductBundleStatusUpdater(
@@ -270,9 +252,6 @@ class ProductBundleBusinessFactory extends AbstractBusinessFactory
         );
     }
 
-    /**
-     * @return \Spryker\Zed\ProductBundle\Business\ProductBundle\Stock\ProductBundleStockHandlerInterface
-     */
     public function createProductBundleStockHandler(): ProductBundleStockHandlerInterface
     {
         return new ProductBundleStockHandler(
@@ -305,17 +284,11 @@ class ProductBundleBusinessFactory extends AbstractBusinessFactory
         );
     }
 
-    /**
-     * @return \Spryker\Zed\ProductBundle\Business\ProductBundle\Expander\ProductOptionExpanderInterface
-     */
     public function createProductOptionExpander(): ProductOptionExpanderInterface
     {
         return new ProductOptionExpander();
     }
 
-    /**
-     * @return \Spryker\Zed\ProductBundle\Business\ProductBundle\Expander\ProductBundleExpanderInterface
-     */
     public function createProductBundleExpander(): ProductBundleExpanderInterface
     {
         return new ProductBundleExpander();
@@ -337,65 +310,41 @@ class ProductBundleBusinessFactory extends AbstractBusinessFactory
         return new ProductBundleIdHydrator($this->getProductQueryContainer());
     }
 
-    /**
-     * @return \Spryker\Zed\ProductBundle\Business\ProductBundle\PersistentCart\ChangeRequestExpanderInterface
-     */
     public function createChangeRequestExpander(): ChangeRequestExpanderInterface
     {
         return new ChangeRequestExpander();
     }
 
-    /**
-     * @return \Spryker\Zed\ProductBundle\Business\ProductBundle\PersistentCart\BundleItemReplacerInterface
-     */
     public function createBundleItemReplacer(): BundleItemReplacerInterface
     {
         return new BundleItemReplacer();
     }
 
-    /**
-     * @return \Spryker\Zed\ProductBundle\Business\ProductBundle\PersistentCart\QuoteItemFinderInterface
-     */
     public function createQuoteItemFinder(): QuoteItemFinderInterface
     {
         return new QuoteItemFinder();
     }
 
-    /**
-     * @return \Spryker\Zed\ProductBundle\Business\ProductBundle\CartNote\QuoteBundleItemsFinderInterface
-     */
     public function createQuoteBundleItemsFinder(): QuoteBundleItemsFinderInterface
     {
         return new QuoteBundleItemsFinder();
     }
 
-    /**
-     * @return \Spryker\Zed\ProductBundle\Business\ProductBundle\Cart\ProductBundleCartChangeObserverInterface
-     */
     public function createProductBundleCartChangeObserver(): ProductBundleCartChangeObserverInterface
     {
         return new ProductBundleCartChangeObserver($this->getMessengerFacade());
     }
 
-    /**
-     * @return \Spryker\Zed\ProductBundle\Business\ProductBundle\Quote\QuoteItemsGrouperInterface
-     */
     public function createQuoteItemsGrouper(): QuoteItemsGrouperInterface
     {
         return new QuoteItemsGrouper();
     }
 
-    /**
-     * @return \Spryker\Zed\ProductBundle\Business\ProductBundle\Cache\ProductBundleCacheInterface
-     */
     public function createProductBundleCache(): ProductBundleCacheInterface
     {
         return new ProductBundleCache();
     }
 
-    /**
-     * @return \Spryker\Zed\ProductBundle\Business\ProductBundle\Expander\ProductBundleItemExpanderInterface
-     */
     public function createProductBundleItemExpander(): ProductBundleItemExpanderInterface
     {
         return new ProductBundleItemExpander(
@@ -404,33 +353,21 @@ class ProductBundleBusinessFactory extends AbstractBusinessFactory
         );
     }
 
-    /**
-     * @return \Spryker\Zed\ProductBundle\Business\ProductBundle\Filter\ReorderBundleItemFilterInterface
-     */
     public function createReorderBundleItemFilter(): ReorderBundleItemFilterInterface
     {
         return new ReorderBundleItemFilter();
     }
 
-    /**
-     * @return \Spryker\Zed\ProductBundle\Business\Replacer\CartReorderItemsReplacerInterface
-     */
     public function createCartReorderItemsReplacer(): CartReorderItemsReplacerInterface
     {
         return new CartReorderItemsReplacer();
     }
 
-    /**
-     * @return \Spryker\Zed\ProductBundle\Business\ProductBundle\Filter\OriginalOrderBundleItemFilterInterface
-     */
     public function createOriginalOrderBundleItemFilter(): OriginalOrderBundleItemFilterInterface
     {
         return new OriginalOrderBundleItemFilter();
     }
 
-    /**
-     * @return \Spryker\Zed\ProductBundle\Business\Extractor\QuoteOriginalSalesOrderItemExtractorInterface
-     */
     public function createQuoteOriginalSalesOrderItemExtractor(): QuoteOriginalSalesOrderItemExtractorInterface
     {
         return new QuoteOriginalSalesOrderItemExtractor();
@@ -524,9 +461,6 @@ class ProductBundleBusinessFactory extends AbstractBusinessFactory
         return $this->getProvidedDependency(ProductBundleDependencyProvider::FACADE_MESSENGER);
     }
 
-    /**
-     * @return \Spryker\Zed\ProductBundle\Dependency\Facade\ProductBundleToStockFacadeInterface
-     */
     public function getStockFacade(): ProductBundleToStockFacadeInterface
     {
         return $this->getProvidedDependency(ProductBundleDependencyProvider::FACADE_STOCK);

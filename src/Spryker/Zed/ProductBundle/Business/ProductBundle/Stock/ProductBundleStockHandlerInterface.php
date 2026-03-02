@@ -9,10 +9,5 @@ namespace Spryker\Zed\ProductBundle\Business\ProductBundle\Stock;
 
 interface ProductBundleStockHandlerInterface
 {
-    /**
-     * @param string $bundledProductSku
-     *
-     * @return void
-     */
     public function updateAffectedBundlesStock(string $bundledProductSku): void;
 }

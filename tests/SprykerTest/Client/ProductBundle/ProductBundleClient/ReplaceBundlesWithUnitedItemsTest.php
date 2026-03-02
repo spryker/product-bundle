@@ -64,9 +64,6 @@ class ReplaceBundlesWithUnitedItemsTest extends Unit
      */
     protected $tester;
 
-    /**
-     * @return void
-     */
     public function testBundleReplacedSuccessfullyWhenPresentInCartChangeTransferItems(): void
     {
         // Arrange
@@ -94,9 +91,6 @@ class ReplaceBundlesWithUnitedItemsTest extends Unit
         }
     }
 
-    /**
-     * @return void
-     */
     public function testCartChangeTransferNotChangedWhenNoBundlePresent(): void
     {
         // Arrange
@@ -116,11 +110,6 @@ class ReplaceBundlesWithUnitedItemsTest extends Unit
         );
     }
 
-   /**
-    * @param array $fixtures
-    *
-    * @return \Generated\Shared\Transfer\CartChangeTransfer
-    */
     protected function createCartChangeTransfer(array $fixtures): CartChangeTransfer
     {
         $cartChangeTransfer = new CartChangeTransfer();
@@ -129,9 +118,6 @@ class ReplaceBundlesWithUnitedItemsTest extends Unit
         return $cartChangeTransfer;
     }
 
-    /**
-     * @return array
-     */
     protected function getCartChangeTransferFixturesWithBundle(): array
     {
         return [
@@ -162,9 +148,6 @@ class ReplaceBundlesWithUnitedItemsTest extends Unit
         ];
     }
 
-    /**
-     * @return array
-     */
     protected function getCartChangeTransferFixturesWithoutBundle(): array
     {
         return [

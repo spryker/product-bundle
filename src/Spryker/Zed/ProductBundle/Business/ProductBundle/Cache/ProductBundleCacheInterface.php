@@ -24,11 +24,6 @@ interface ProductBundleCacheInterface
      */
     public function cacheProductForBundleTransfersBySkus(array $productForBundleTransfers, array $skus): void;
 
-    /**
-     * @param string $sku
-     *
-     * @return bool
-     */
     public function hasProductForBundleTransfersBySku(string $sku): bool;
 
     /**
@@ -38,8 +33,5 @@ interface ProductBundleCacheInterface
      */
     public function getProductForBundleTransfersBySku(string $sku): array;
 
-    /**
-     * @return void
-     */
     public function cleanCache(): void;
 }

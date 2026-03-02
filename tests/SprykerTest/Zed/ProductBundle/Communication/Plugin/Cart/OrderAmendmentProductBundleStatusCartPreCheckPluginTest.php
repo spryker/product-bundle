@@ -35,9 +35,6 @@ class OrderAmendmentProductBundleStatusCartPreCheckPluginTest extends Unit
      */
     protected ProductBundleCommunicationTester $tester;
 
-    /**
-     * @return void
-     */
     public function testCheckThrowsExceptionWhenQuoteIsNotSet(): void
     {
         // Assert
@@ -48,9 +45,6 @@ class OrderAmendmentProductBundleStatusCartPreCheckPluginTest extends Unit
         (new OrderAmendmentProductBundleStatusCartPreCheckPlugin())->check(new CartChangeTransfer());
     }
 
-    /**
-     * @return void
-     */
     public function testCheckReturnsSuccessfulResponseWhenBundleProductIsActive(): void
     {
         // Arrange
@@ -68,9 +62,6 @@ class OrderAmendmentProductBundleStatusCartPreCheckPluginTest extends Unit
         $this->assertEmpty($cartChangeTransfer->getMessages());
     }
 
-    /**
-     * @return void
-     */
     public function testCheckReturnsFailedResponseWhenBundleProductIsNotActive(): void
     {
         // Arrange
@@ -93,9 +84,6 @@ class OrderAmendmentProductBundleStatusCartPreCheckPluginTest extends Unit
         $this->assertNotEmpty($cartChangeTransfer->getMessages());
     }
 
-    /**
-     * @return void
-     */
     public function testCheckReturnsSuccessfulResponseWhenBundleProductIsNotActiveAndExistsInOriginalSalesOrderItems(): void
     {
         // Arrange

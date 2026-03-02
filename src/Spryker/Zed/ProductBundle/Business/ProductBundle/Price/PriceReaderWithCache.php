@@ -21,17 +21,11 @@ class PriceReaderWithCache implements PriceReaderInterface
      */
     protected static $priceCache;
 
-    /**
-     * @param \Spryker\Zed\ProductBundle\Dependency\Facade\ProductBundleToPriceFacadeInterface $priceFacade
-     */
     public function __construct(ProductBundleToPriceFacadeInterface $priceFacade)
     {
         $this->priceFacade = $priceFacade;
     }
 
-    /**
-     * @return string
-     */
     public function getNetPriceModeIdentifier(): string
     {
         if (static::$priceCache === null) {

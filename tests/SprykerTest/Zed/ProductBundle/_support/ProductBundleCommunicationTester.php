@@ -37,12 +37,6 @@ class ProductBundleCommunicationTester extends Actor
      */
     protected const STORE_NAME_DE = 'DE';
 
-    /**
-     * @param bool $isProductActive
-     * @param string $sku
-     *
-     * @return \Generated\Shared\Transfer\ProductConcreteTransfer
-     */
     public function createProductBundle(bool $isProductActive = false, string $sku = 'sku1'): ProductConcreteTransfer
     {
         $productForBundleTransfer = (new ProductForBundleTransfer())
@@ -60,12 +54,6 @@ class ProductBundleCommunicationTester extends Actor
         return $productConcreteTransfer;
     }
 
-    /**
-     * @param string $sku
-     * @param bool $isActive
-     *
-     * @return \Generated\Shared\Transfer\ProductConcreteTransfer
-     */
     protected function createProduct(
         string $sku,
         bool $isActive = false

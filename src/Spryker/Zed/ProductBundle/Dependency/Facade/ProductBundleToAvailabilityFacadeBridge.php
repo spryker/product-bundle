@@ -40,57 +40,27 @@ class ProductBundleToAvailabilityFacadeBridge implements ProductBundleToAvailabi
         return $this->availabilityFacade->getStoresWhereProductAvailabilityIsDefined($concreteSku);
     }
 
-    /**
-     * @param string $sku
-     * @param \Spryker\DecimalObject\Decimal $quantity
-     * @param \Generated\Shared\Transfer\StoreTransfer $storeTransfer
-     *
-     * @return int
-     */
     public function saveProductAvailabilityForStore(string $sku, Decimal $quantity, StoreTransfer $storeTransfer): int
     {
         return $this->availabilityFacade->saveProductAvailabilityForStore($sku, $quantity, $storeTransfer);
     }
 
-    /**
-     * @param string $sku
-     * @param \Spryker\DecimalObject\Decimal $quantity
-     * @param \Generated\Shared\Transfer\StoreTransfer $storeTransfer
-     *
-     * @return bool
-     */
     public function isProductSellableForStore(string $sku, Decimal $quantity, StoreTransfer $storeTransfer): bool
     {
         return $this->availabilityFacade->isProductSellableForStore($sku, $quantity, $storeTransfer);
     }
 
-    /**
-     * @param string $sku
-     * @param \Generated\Shared\Transfer\StoreTransfer $storeTransfer
-     *
-     * @return \Generated\Shared\Transfer\ProductConcreteAvailabilityTransfer|null
-     */
     public function findOrCreateProductConcreteAvailabilityBySkuForStore(string $sku, StoreTransfer $storeTransfer): ?ProductConcreteAvailabilityTransfer
     {
         return $this->availabilityFacade->findOrCreateProductConcreteAvailabilityBySkuForStore($sku, $storeTransfer);
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\ProductAvailabilityCriteriaTransfer $productAvailabilityCriteriaTransfer
-     *
-     * @return \Generated\Shared\Transfer\ProductConcreteAvailabilityCollectionTransfer
-     */
     public function getProductConcreteAvailabilityCollection(
         ProductAvailabilityCriteriaTransfer $productAvailabilityCriteriaTransfer
     ): ProductConcreteAvailabilityCollectionTransfer {
         return $this->availabilityFacade->getProductConcreteAvailabilityCollection($productAvailabilityCriteriaTransfer);
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\SellableItemsRequestTransfer $sellableItemsRequestTransfer
-     *
-     * @return \Generated\Shared\Transfer\SellableItemsResponseTransfer
-     */
     public function areProductsSellableForStore(
         SellableItemsRequestTransfer $sellableItemsRequestTransfer
     ): SellableItemsResponseTransfer {

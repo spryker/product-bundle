@@ -29,9 +29,6 @@ class ProductBundleCartActiveCheck implements ProductBundleCartActiveCheckInterf
      */
     protected $productBundleReader;
 
-    /**
-     * @param \Spryker\Zed\ProductBundle\Business\ProductBundle\ProductBundleReaderInterface $productBundleReader
-     */
     public function __construct(ProductBundleReaderInterface $productBundleReader)
     {
         $this->productBundleReader = $productBundleReader;
@@ -84,11 +81,6 @@ class ProductBundleCartActiveCheck implements ProductBundleCartActiveCheckInterf
         return true;
     }
 
-    /**
-     * @param string $sku
-     *
-     * @return \Generated\Shared\Transfer\MessageTransfer
-     */
     protected function createItemIsNotActiveMessageTransfer(string $sku): MessageTransfer
     {
         return (new MessageTransfer())

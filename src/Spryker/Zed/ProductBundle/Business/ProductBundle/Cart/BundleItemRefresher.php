@@ -13,11 +13,6 @@ use Generated\Shared\Transfer\QuoteTransfer;
 
 class BundleItemRefresher implements BundleRefresherInterface
 {
-    /**
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
-     *
-     * @return \Generated\Shared\Transfer\QuoteTransfer
-     */
     public function refreshBundlesWithUnitedItemsToBeInSyncWithQuote(QuoteTransfer $quoteTransfer): QuoteTransfer
     {
         $bundleItems = new ArrayObject();
@@ -37,12 +32,6 @@ class BundleItemRefresher implements BundleRefresherInterface
         return $quoteTransfer;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
-     * @param string $bundleItemIdentifier
-     *
-     * @return \Generated\Shared\Transfer\ItemTransfer|null
-     */
     protected function findFirstQuoteItemByBundleIdentifier(QuoteTransfer $quoteTransfer, string $bundleItemIdentifier): ?ItemTransfer
     {
         foreach ($quoteTransfer->getItems() as $itemTransfer) {

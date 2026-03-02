@@ -23,10 +23,6 @@ class ProductBundleItemExpander implements ProductBundleItemExpanderInterface
      */
     protected $productBundlePriceCalculation;
 
-    /**
-     * @param \Spryker\Zed\ProductBundle\Persistence\ProductBundleRepositoryInterface $productBundleRepository
-     * @param \Spryker\Zed\ProductBundle\Business\ProductBundle\Calculation\ProductBundlePriceCalculationInterface $productBundlePriceCalculation
-     */
     public function __construct(
         ProductBundleRepositoryInterface $productBundleRepository,
         ProductBundlePriceCalculationInterface $productBundlePriceCalculation

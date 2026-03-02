@@ -84,14 +84,6 @@ class ProductBundleCartExpander implements ProductBundleCartExpanderInterface
      */
     protected ProductBundleConfig $productBundleConfig;
 
-    /**
-     * @param \Spryker\Zed\ProductBundle\Dependency\Facade\ProductBundleToPriceProductFacadeInterface $priceProductFacade
-     * @param \Spryker\Zed\ProductBundle\Dependency\Facade\ProductBundleToProductFacadeInterface $productFacade
-     * @param \Spryker\Zed\ProductBundle\Dependency\Facade\ProductBundleToLocaleFacadeInterface $localeFacade
-     * @param \Spryker\Zed\ProductBundle\Business\ProductBundle\ProductBundleReaderInterface $productBundleReader
-     * @param \Spryker\Zed\ProductBundle\Business\ProductBundle\Price\PriceReaderInterface $priceReader
-     * @param \Spryker\Zed\ProductBundle\ProductBundleConfig $productBundleConfig
-     */
     public function __construct(
         ProductBundleToPriceProductFacadeInterface $priceProductFacade,
         ProductBundleToProductFacadeInterface $productFacade,
@@ -464,11 +456,6 @@ class ProductBundleCartExpander implements ProductBundleCartExpanderInterface
         $bundleItemTransfer->setGroupKey($groupKey);
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\ItemTransfer $itemTransfer
-     *
-     * @return string
-     */
     protected function buildGroupKey(ItemTransfer $itemTransfer): string
     {
         if ($itemTransfer->getGroupKeyPrefix()) {
@@ -536,12 +523,6 @@ class ProductBundleCartExpander implements ProductBundleCartExpanderInterface
         return $itemTransfer->getUnitGrossPrice();
     }
 
-    /**
-     * @param string $sku
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
-     *
-     * @return \Generated\Shared\Transfer\PriceProductFilterTransfer
-     */
     protected function createStoreSpecificPriceProductFilterTransfer(string $sku, QuoteTransfer $quoteTransfer): PriceProductFilterTransfer
     {
         return (new PriceProductFilterTransfer())

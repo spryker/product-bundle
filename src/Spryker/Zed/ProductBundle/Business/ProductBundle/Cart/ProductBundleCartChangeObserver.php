@@ -25,20 +25,11 @@ class ProductBundleCartChangeObserver implements ProductBundleCartChangeObserver
      */
     protected $messengerFacade;
 
-    /**
-     * @param \Spryker\Zed\ProductBundle\Dependency\Facade\ProductBundleToMessengerFacadeInterface $messengerFacade
-     */
     public function __construct(ProductBundleToMessengerFacadeInterface $messengerFacade)
     {
         $this->messengerFacade = $messengerFacade;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\QuoteTransfer $resultQuoteTransfer
-     * @param \Generated\Shared\Transfer\QuoteTransfer $sourceQuoteTransfer
-     *
-     * @return void
-     */
     public function checkBundleItemsChanges(QuoteTransfer $resultQuoteTransfer, QuoteTransfer $sourceQuoteTransfer): void
     {
         $resultQuoteItemIndex = $this->createQuoteItemIndex($resultQuoteTransfer->getBundleItems());
@@ -66,12 +57,6 @@ class ProductBundleCartChangeObserver implements ProductBundleCartChangeObserver
         return $cartIndex;
     }
 
-    /**
-     * @param array $resultQuoteItemIndex
-     * @param array $sourceQuoteItemIndex
-     *
-     * @return void
-     */
     protected function checkQuoteItemPriceChanges(array $resultQuoteItemIndex, array $sourceQuoteItemIndex): void
     {
         $quoteItemDiff = $this->getQuoteItemsPriceDiff($resultQuoteItemIndex, $sourceQuoteItemIndex);
@@ -84,12 +69,6 @@ class ProductBundleCartChangeObserver implements ProductBundleCartChangeObserver
         }
     }
 
-    /**
-     * @param array $resultQuoteItemIndex
-     * @param array $sourceQuoteItemIndex
-     *
-     * @return array
-     */
     protected function getQuoteItemsPriceDiff(array $resultQuoteItemIndex, array $sourceQuoteItemIndex): array
     {
         $quoteItemDiff = [];
@@ -103,11 +82,6 @@ class ProductBundleCartChangeObserver implements ProductBundleCartChangeObserver
         return $quoteItemDiff;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\ItemTransfer $itemTransfer
-     *
-     * @return string
-     */
     protected function getItemIdentifier(ItemTransfer $itemTransfer): string
     {
         return $itemTransfer->getGroupKey() ?: $itemTransfer->getSku();

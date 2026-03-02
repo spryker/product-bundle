@@ -88,9 +88,6 @@ class ExpandItemsWithProductBundlesTest extends Unit
      */
     protected $tester;
 
-    /**
-     * @return void
-     */
     protected function setUp(): void
     {
         parent::setUp();
@@ -103,9 +100,6 @@ class ExpandItemsWithProductBundlesTest extends Unit
         $container->set(static::SERVICE_LOCALE, static::DEFAULT_LOCALE);
     }
 
-    /**
-     * @return void
-     */
     public function testExpandBundleItemsWithProductBundles(): void
     {
         // Arrange
@@ -141,9 +135,6 @@ class ExpandItemsWithProductBundlesTest extends Unit
         $this->assertEquals($bundleTransfer->getFkProductAbstract(), $itemTransfers[0]->getProductBundle()->getIdProductAbstract());
     }
 
-    /**
-     * @return void
-     */
     public function testExpandBundleItemsWithoutProductBundles(): void
     {
         // Arrange

@@ -34,11 +34,6 @@ class ProductBundleToPriceProductFacadeBridge implements ProductBundleToPricePro
         return $this->priceProductFacade->findPriceFor($priceFilterTransfer);
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\PriceProductFilterTransfer $priceFilterTransfer
-     *
-     * @return bool
-     */
     public function hasValidPriceFor(PriceProductFilterTransfer $priceFilterTransfer): bool
     {
         return $this->priceProductFacade->hasValidPriceFor($priceFilterTransfer);

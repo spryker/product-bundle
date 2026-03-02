@@ -32,9 +32,6 @@ class SanitizeBundleItemsBeforeQuoteSavePluginTest extends Unit
      */
     protected ProductBundleCommunicationTester $tester;
 
-    /**
-     * @return void
-     */
     public function testShouldSanitizeBundleItems(): void
     {
         // Arrange
@@ -49,9 +46,6 @@ class SanitizeBundleItemsBeforeQuoteSavePluginTest extends Unit
         $this->assertEmpty($quoteTransfer->getBundleItems());
     }
 
-    /**
-     * @return void
-     */
     public function testShouldNotSanitizeBundleItems(): void
     {
         // Arrange

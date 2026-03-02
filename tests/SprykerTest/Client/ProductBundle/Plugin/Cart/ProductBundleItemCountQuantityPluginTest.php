@@ -25,9 +25,6 @@ use Spryker\Client\ProductBundle\Plugin\Cart\ProductBundleItemCountQuantityPlugi
  */
 class ProductBundleItemCountQuantityPluginTest extends Unit
 {
-    /**
-     * @return void
-     */
     public function testGetItemCountReturnsZeroWhenNoItemAndNoBundleProductInCart(): void
     {
         // Arrange
@@ -38,9 +35,6 @@ class ProductBundleItemCountQuantityPluginTest extends Unit
         $this->assertSame(0, $productBundleItemCountQuantityPlugin->getItemCount($quoteTransfer));
     }
 
-    /**
-     * @return void
-     */
     public function testGetItemCountReturnsOneWhenOneItemWithQuantityOneInCart(): void
     {
         // Arrange
@@ -52,9 +46,6 @@ class ProductBundleItemCountQuantityPluginTest extends Unit
         $this->assertSame(1, $productBundleItemCountQuantityPlugin->getItemCount($quoteTransfer));
     }
 
-    /**
-     * @return void
-     */
     public function testGetItemCountReturnsOneWhenOneBundleProductWithQuantityOneInCart(): void
     {
         // Arrange
@@ -66,9 +57,6 @@ class ProductBundleItemCountQuantityPluginTest extends Unit
         $this->assertSame(1, $productBundleItemCountQuantityPlugin->getItemCount($quoteTransfer));
     }
 
-    /**
-     * @return void
-     */
     public function testGetItemCountReturnsTwoWhenOneBundleProductWithQuantityOneAndOneItemWithQuantityOneInCart(): void
     {
         // Arrange

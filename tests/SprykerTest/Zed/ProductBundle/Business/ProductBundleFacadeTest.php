@@ -57,18 +57,12 @@ class ProductBundleFacadeTest extends Unit
      */
     protected ProductBundleBusinessTester $tester;
 
-    /**
-     * @return void
-     */
     protected function tearDown(): void
     {
         parent::tearDown();
         $this->tester->cleanProductBundleCache();
     }
 
-    /**
-     * @return void
-     */
     public function testExpandBundleItemsShouldCreateBundleItemsAndCalculateSplitPrice(): void
     {
         $this->markTestSkipped();
@@ -121,9 +115,6 @@ class ProductBundleFacadeTest extends Unit
         $this->assertSame($bundleItemIdentifier, $itemTransfer->getRelatedBundleItemIdentifier());
     }
 
-    /**
-     * @return void
-     */
     public function testGetProductBundleCollectionByCriteriaFilterShouldReturnPersistedBundledProducts(): void
     {
         //Assign
@@ -145,9 +136,6 @@ class ProductBundleFacadeTest extends Unit
         }
     }
 
-    /**
-     * @return void
-     */
     public function testExpandCartItemGroupKeyShouldAppendBundleToKey(): void
     {
         // Arrange
@@ -172,9 +160,6 @@ class ProductBundleFacadeTest extends Unit
         );
     }
 
-    /**
-     * @return void
-     */
     public function testPostSaveCartUpdateBundlesShouldReturnQuoteWithoutBundlesWhenBundleIsRemoved(): void
     {
         // Arrange
@@ -192,9 +177,6 @@ class ProductBundleFacadeTest extends Unit
         $this->assertCount(0, $quoteTransfer->getBundleItems());
     }
 
-    /**
-     * @return void
-     */
     public function testPreCheckCartActiveWhenBundleProductIsActive(): void
     {
         // Arrange
@@ -215,9 +197,6 @@ class ProductBundleFacadeTest extends Unit
         $this->assertEmpty($cartChangeTransfer->getMessages());
     }
 
-    /**
-     * @return void
-     */
     public function testPreCheckCartActiveWhenBundleProductIsNotActive(): void
     {
         // Arrange
@@ -239,9 +218,6 @@ class ProductBundleFacadeTest extends Unit
         $this->assertNotEmpty($cartChangeTransfer->getMessages());
     }
 
-    /**
-     * @return void
-     */
     public function testPreCheckCartAvailabilityWhenBundleAvailable(): void
     {
         // Arrange
@@ -270,9 +246,6 @@ class ProductBundleFacadeTest extends Unit
         $this->assertTrue($cartChangeTransfer->getIsSuccess());
     }
 
-    /**
-     * @return void
-     */
     public function testPreCheckCartAvailabilityWhenBundleUnavailable(): void
     {
         // Arrange
@@ -302,9 +275,6 @@ class ProductBundleFacadeTest extends Unit
         $this->assertFalse($cartChangeTransfer->getIsSuccess());
     }
 
-    /**
-     * @return void
-     */
     public function testPreCheckCheckoutAvailabilityWhenBundleUnavailable(): void
     {
         // Arrange
@@ -332,9 +302,6 @@ class ProductBundleFacadeTest extends Unit
         $this->assertFalse($checkoutResponseTransfer->getIsSuccess());
     }
 
-    /**
-     * @return void
-     */
     public function testPreCheckCheckoutAvailabilityWhenBundleAvailable(): void
     {
         // Arrange
@@ -362,9 +329,6 @@ class ProductBundleFacadeTest extends Unit
         $this->assertNull($checkoutResponseTransfer->getIsSuccess());
     }
 
-    /**
-     * @return void
-     */
     public function testUpdateAffectedBundleAvailabilityWhenOneOfBundledItemsUnavailable(): void
     {
         // Arrange
@@ -406,9 +370,6 @@ class ProductBundleFacadeTest extends Unit
         $this->assertSame('0.0000000000', $bundledProductAvailability->getAvailability()->toString());
     }
 
-    /**
-     * @return void
-     */
     public function testUpdateAffectedBundleAvailabilityShouldMakeProductBundleSellableWhenAllBundleProductsAreActiveAndHaveStock(): void
     {
         // Arrange
@@ -447,9 +408,6 @@ class ProductBundleFacadeTest extends Unit
         $this->assertTrue($isSellable);
     }
 
-    /**
-     * @return void
-     */
     public function testUpdateAffectedBundleAvailabilityShouldCalculateCorrectlyWhenOneOfProductsHasNoStock(): void
     {
         // Arrange
@@ -490,9 +448,6 @@ class ProductBundleFacadeTest extends Unit
         $this->assertFalse($isSellable);
     }
 
-    /**
-     * @return void
-     */
     public function testSaveBundledProductsShouldAddProvidedConcreteToBundle(): void
     {
         // Arrange
@@ -525,9 +480,6 @@ class ProductBundleFacadeTest extends Unit
         $this->assertSame($productConcreteBundleTransfer->getIdProductConcrete(), $bundledProductEntity->getFkProduct());
     }
 
-    /**
-     * @return void
-     */
     public function testSaveBundledProductsWhenRemoveListProvidedShouldRemoveBundledProducts(): void
     {
         $this->markTestIncomplete('Something with transactions');
@@ -548,9 +500,6 @@ class ProductBundleFacadeTest extends Unit
         $this->assertCount(static::ID_STORE, $bundledProducts);
     }
 
-    /**
-     * @return void
-     */
     public function testFindBundledProductsByIdProductConcreteShouldReturnPersistedBundledProducts(): void
     {
         $this->markTestIncomplete('Something with transactions');
@@ -566,9 +515,6 @@ class ProductBundleFacadeTest extends Unit
         $this->assertCount(2, $bundledProducts);
     }
 
-    /**
-     * @return void
-     */
     public function testAssignBundledProductsToProductConcreteShouldAssignPersistedBundledProducts(): void
     {
         $this->markTestIncomplete('Something with transactions');
@@ -586,9 +532,6 @@ class ProductBundleFacadeTest extends Unit
         $this->assertCount(2, $productConcreteTransfer->getProductBundle()->getBundledProducts());
     }
 
-    /**
-     * @return void
-     */
     public function testExpandProductConcreteTransfersWithBundledProductsSuccessful(): void
     {
         // Arrange
@@ -616,9 +559,6 @@ class ProductBundleFacadeTest extends Unit
         $this->assertNull($productConcreteTransfers[1]->getProductBundle());
     }
 
-    /**
-     * @return void
-     */
     public function testFilterBundleItemsOnCartReloadShouldRemoveBundleItems(): void
     {
         // Arrange
@@ -640,9 +580,6 @@ class ProductBundleFacadeTest extends Unit
         $this->assertCount(2, $updatedQuoteTransfer->getItems());
     }
 
-    /**
-     * @return void
-     */
     public function testDeactivateRelatedProductBundlesWithInactiveProductConcrete(): void
     {
         // Arrange
@@ -656,9 +593,6 @@ class ProductBundleFacadeTest extends Unit
         $this->assertFalse($productConcreteTransfer->getIsActive());
     }
 
-    /**
-     * @return void
-     */
     public function testCalculateBundlePriceForCalculableObjectTransferShouldCalculateBundlePricesByRelatedItems(): void
     {
         // Arrange
@@ -789,9 +723,6 @@ class ProductBundleFacadeTest extends Unit
         ]);
     }
 
-    /**
-     * @return void
-     */
     public function testPreCheckBundledProductPricesShouldBeSuccessfulWhenAllRelatedProductsHavePrices(): void
     {
         // Arrange
@@ -846,9 +777,6 @@ class ProductBundleFacadeTest extends Unit
         $this->assertTrue($cartPreCheckResponseTransfer->getIsSuccess());
     }
 
-    /**
-     * @return void
-     */
     public function testPreCheckBundledProductPricesShouldBeNotSuccessfulWhenAtLeastOneRelatedProductDoesNotHavePrice(): void
     {
         // Arrange
@@ -913,9 +841,6 @@ class ProductBundleFacadeTest extends Unit
         $this->assertFalse($cartPreCheckResponseTransfer->getIsSuccess());
     }
 
-    /**
-     * @return void
-     */
     public function testExpandBundleItemsShouldCreateBundleItemsAndCalculateSplitPriceWhenZeroPrice(): void
     {
         // Arrange
@@ -966,9 +891,6 @@ class ProductBundleFacadeTest extends Unit
         return $this->tester->getFacade();
     }
 
-    /**
-     * @return \Spryker\Zed\ProductBundle\Dependency\Facade\ProductBundleToAvailabilityFacadeInterface
-     */
     protected function createAvailabilityFacade(): ProductBundleToAvailabilityFacadeInterface
     {
         return new ProductBundleToAvailabilityFacadeBridge($this->tester->getLocator()->availability()->facade());

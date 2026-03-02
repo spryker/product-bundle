@@ -87,11 +87,6 @@ class ProductBundleDependencyProvider extends AbstractBundleDependencyProvider
      */
     public const QUERY_CONTAINER_PRODUCT = 'QUERY_CONTAINER_PRODUCT';
 
-    /**
-     * @param \Spryker\Zed\Kernel\Container $container
-     *
-     * @return \Spryker\Zed\Kernel\Container
-     */
     public function provideBusinessLayerDependencies(Container $container): Container
     {
         $container = parent::provideBusinessLayerDependencies($container);
@@ -112,11 +107,6 @@ class ProductBundleDependencyProvider extends AbstractBundleDependencyProvider
         return $container;
     }
 
-    /**
-     * @param \Spryker\Zed\Kernel\Container $container
-     *
-     * @return \Spryker\Zed\Kernel\Container
-     */
     protected function addFacadeProduct(Container $container): Container
     {
         $container->set(static::FACADE_PRODUCT, function (Container $container) {
@@ -126,11 +116,6 @@ class ProductBundleDependencyProvider extends AbstractBundleDependencyProvider
         return $container;
     }
 
-    /**
-     * @param \Spryker\Zed\Kernel\Container $container
-     *
-     * @return \Spryker\Zed\Kernel\Container
-     */
     protected function addFacadePriceProduct(Container $container): Container
     {
         $container->set(static::FACADE_PRICE_PRODUCT, function (Container $container) {
@@ -140,11 +125,6 @@ class ProductBundleDependencyProvider extends AbstractBundleDependencyProvider
         return $container;
     }
 
-    /**
-     * @param \Spryker\Zed\Kernel\Container $container
-     *
-     * @return \Spryker\Zed\Kernel\Container
-     */
     protected function addFacadeLocale(Container $container): Container
     {
         $container->set(static::FACADE_LOCALE, function (Container $container) {
@@ -154,11 +134,6 @@ class ProductBundleDependencyProvider extends AbstractBundleDependencyProvider
         return $container;
     }
 
-    /**
-     * @param \Spryker\Zed\Kernel\Container $container
-     *
-     * @return \Spryker\Zed\Kernel\Container
-     */
     protected function addFacadeAvailability(Container $container): Container
     {
         $container->set(static::FACADE_AVAILABILITY, function (Container $container) {
@@ -168,11 +143,6 @@ class ProductBundleDependencyProvider extends AbstractBundleDependencyProvider
         return $container;
     }
 
-    /**
-     * @param \Spryker\Zed\Kernel\Container $container
-     *
-     * @return \Spryker\Zed\Kernel\Container
-     */
     protected function addQueryContainerSales(Container $container): Container
     {
         $container->set(static::QUERY_CONTAINER_SALES, function (Container $container) {
@@ -182,11 +152,6 @@ class ProductBundleDependencyProvider extends AbstractBundleDependencyProvider
         return $container;
     }
 
-    /**
-     * @param \Spryker\Zed\Kernel\Container $container
-     *
-     * @return \Spryker\Zed\Kernel\Container
-     */
     protected function addQueryContainerStock(Container $container): Container
     {
         $container->set(static::QUERY_CONTAINER_STOCK, function (Container $container) {
@@ -196,11 +161,6 @@ class ProductBundleDependencyProvider extends AbstractBundleDependencyProvider
         return $container;
     }
 
-    /**
-     * @param \Spryker\Zed\Kernel\Container $container
-     *
-     * @return \Spryker\Zed\Kernel\Container
-     */
     protected function addQueryContainerProduct(Container $container): Container
     {
         $container->set(static::QUERY_CONTAINER_PRODUCT, function (Container $container) {
@@ -210,11 +170,6 @@ class ProductBundleDependencyProvider extends AbstractBundleDependencyProvider
         return $container;
     }
 
-    /**
-     * @param \Spryker\Zed\Kernel\Container $container
-     *
-     * @return \Spryker\Zed\Kernel\Container
-     */
     protected function addFacadeProductImage(Container $container): Container
     {
         $container->set(static::FACADE_PRODUCT_IMAGE, function (Container $container) {
@@ -224,11 +179,6 @@ class ProductBundleDependencyProvider extends AbstractBundleDependencyProvider
         return $container;
     }
 
-    /**
-     * @param \Spryker\Zed\Kernel\Container $container
-     *
-     * @return \Spryker\Zed\Kernel\Container
-     */
     protected function addFacadePrice(Container $container): Container
     {
         $container->set(static::FACADE_PRICE, function (Container $container) {
@@ -238,11 +188,6 @@ class ProductBundleDependencyProvider extends AbstractBundleDependencyProvider
         return $container;
     }
 
-    /**
-     * @param \Spryker\Zed\Kernel\Container $container
-     *
-     * @return \Spryker\Zed\Kernel\Container
-     */
     protected function addStoreFacade(Container $container): Container
     {
         $container->set(static::FACADE_STORE, function (Container $container) {
@@ -252,11 +197,6 @@ class ProductBundleDependencyProvider extends AbstractBundleDependencyProvider
         return $container;
     }
 
-    /**
-     * @param \Spryker\Zed\Kernel\Container $container
-     *
-     * @return \Spryker\Zed\Kernel\Container
-     */
     protected function addMessengerFacade(Container $container): Container
     {
         $container->set(static::FACADE_MESSENGER, function (Container $container) {
@@ -266,11 +206,6 @@ class ProductBundleDependencyProvider extends AbstractBundleDependencyProvider
         return $container;
     }
 
-    /**
-     * @param \Spryker\Zed\Kernel\Container $container
-     *
-     * @return \Spryker\Zed\Kernel\Container
-     */
     protected function addStockFacade(Container $container): Container
     {
         $container->set(static::FACADE_STOCK, function (Container $container) {

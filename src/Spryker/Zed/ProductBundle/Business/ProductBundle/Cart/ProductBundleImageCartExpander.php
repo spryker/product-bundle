@@ -29,10 +29,6 @@ class ProductBundleImageCartExpander implements ProductBundleCartExpanderInterfa
      */
     protected $localeFacade;
 
-    /**
-     * @param \Spryker\Zed\ProductBundle\Dependency\Facade\ProductBundleToProductImageFacadeInterface $productImageFacade
-     * @param \Spryker\Zed\ProductBundle\Dependency\Facade\ProductBundleToLocaleFacadeInterface $localeFacade
-     */
     public function __construct(
         ProductBundleToProductImageFacadeInterface $productImageFacade,
         ProductBundleToLocaleFacadeInterface $localeFacade

@@ -18,10 +18,5 @@ interface ProductBundleToPriceProductFacadeInterface
      */
     public function findPriceFor(PriceProductFilterTransfer $priceFilterTransfer);
 
-    /**
-     * @param \Generated\Shared\Transfer\PriceProductFilterTransfer $priceFilterTransfer
-     *
-     * @return bool
-     */
     public function hasValidPriceFor(PriceProductFilterTransfer $priceFilterTransfer): bool;
 }

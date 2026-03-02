@@ -37,11 +37,6 @@ class ProductBundlePriceCalculation implements ProductBundlePriceCalculationInte
         return $quoteTransfer;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\CalculableObjectTransfer $calculableObjectTransfer
-     *
-     * @return \Generated\Shared\Transfer\CalculableObjectTransfer
-     */
     public function calculateForCalculableObjectTransfer(CalculableObjectTransfer $calculableObjectTransfer): CalculableObjectTransfer
     {
         $this->resetBundlePriceAmountsCalculableObjectTransfer($calculableObjectTransfer);
@@ -57,12 +52,6 @@ class ProductBundlePriceCalculation implements ProductBundlePriceCalculationInte
         return $calculableObjectTransfer;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\ItemTransfer $bundleItemTransfer
-     * @param \Generated\Shared\Transfer\ItemTransfer $itemTransfer
-     *
-     * @return void
-     */
     public function calculateBundleAmounts(ItemTransfer $bundleItemTransfer, ItemTransfer $itemTransfer): void
     {
         $this->addPrice($bundleItemTransfer, $itemTransfer);
@@ -248,11 +237,6 @@ class ProductBundlePriceCalculation implements ProductBundlePriceCalculationInte
         }
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\CalculableObjectTransfer $calculableObjectTransfer
-     *
-     * @return \Generated\Shared\Transfer\CalculableObjectTransfer
-     */
     protected function resetBundlePriceAmountsCalculableObjectTransfer(CalculableObjectTransfer $calculableObjectTransfer): CalculableObjectTransfer
     {
         foreach ($calculableObjectTransfer->getBundleItems() as $bundleItemTransfer) {
@@ -262,11 +246,6 @@ class ProductBundlePriceCalculation implements ProductBundlePriceCalculationInte
         return $calculableObjectTransfer;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\ItemTransfer $bundleItemTransfer
-     *
-     * @return \Generated\Shared\Transfer\ItemTransfer
-     */
     protected function resetBundleItemPrice(ItemTransfer $bundleItemTransfer): ItemTransfer
     {
         $bundleItemTransfer->setUnitGrossPrice(0);

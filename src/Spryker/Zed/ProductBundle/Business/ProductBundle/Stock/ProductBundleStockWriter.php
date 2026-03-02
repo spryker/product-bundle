@@ -55,12 +55,6 @@ class ProductBundleStockWriter implements ProductBundleStockWriterInterface
      */
     protected $storeFacade;
 
-    /**
-     * @param \Spryker\Zed\ProductBundle\Persistence\ProductBundleQueryContainerInterface $productBundleQueryContainer
-     * @param \Spryker\Zed\ProductBundle\Dependency\QueryContainer\ProductBundleToStockQueryContainerInterface $stockQueryContainer
-     * @param \Spryker\Zed\ProductBundle\Business\ProductBundle\Availability\ProductBundleAvailabilityHandlerInterface $productBundleAvailabilityHandler
-     * @param \Spryker\Zed\ProductBundle\Dependency\Facade\ProductBundleToStoreFacadeInterface $storeFacade
-     */
     public function __construct(
         ProductBundleQueryContainerInterface $productBundleQueryContainer,
         ProductBundleToStockQueryContainerInterface $stockQueryContainer,
@@ -359,11 +353,6 @@ class ProductBundleStockWriter implements ProductBundleStockWriterInterface
         return $bundleTotalStockPerWarehouse;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\ProductConcreteTransfer $productConcreteTransfer
-     *
-     * @return void
-     */
     protected function removeBundleStockFromSharedStores(ProductConcreteTransfer $productConcreteTransfer): void
     {
         foreach ($this->storeFacade->getAllStores() as $storeTransfer) {

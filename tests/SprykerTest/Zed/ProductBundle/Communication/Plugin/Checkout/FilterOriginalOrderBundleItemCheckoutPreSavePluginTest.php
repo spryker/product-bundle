@@ -34,9 +34,6 @@ class FilterOriginalOrderBundleItemCheckoutPreSavePluginTest extends Unit
      */
     protected ProductBundleCommunicationTester $tester;
 
-    /**
-     * @return void
-     */
     public function testPreSaveShouldFilterOriginalSalesOrderItemsWhenTheyAreInBundleItems(): void
     {
         // Arrange
@@ -59,9 +56,6 @@ class FilterOriginalOrderBundleItemCheckoutPreSavePluginTest extends Unit
         $this->assertSame('another-item-sku', $resultQuoteTransfer->getOriginalSalesOrderItems()[0]->getSku());
     }
 
-    /**
-     * @return void
-     */
     public function testPreSaveShouldNotFilterOriginalSalesOrderItemsWhenTheyAreNotInBundleItems(): void
     {
         // Arrange
@@ -83,9 +77,6 @@ class FilterOriginalOrderBundleItemCheckoutPreSavePluginTest extends Unit
         $this->assertCount(2, $resultQuoteTransfer->getOriginalSalesOrderItems());
     }
 
-    /**
-     * @return void
-     */
     public function testPreSaveShouldDoNothingWhenBundleItemsAreEmpty(): void
     {
         // Arrange
@@ -105,9 +96,6 @@ class FilterOriginalOrderBundleItemCheckoutPreSavePluginTest extends Unit
         $this->assertCount(2, $resultQuoteTransfer->getOriginalSalesOrderItems());
     }
 
-    /**
-     * @return void
-     */
     public function testPreSaveShouldDoNothingWhenOriginalSalesOrderItemsAreEmpty(): void
     {
         // Arrange

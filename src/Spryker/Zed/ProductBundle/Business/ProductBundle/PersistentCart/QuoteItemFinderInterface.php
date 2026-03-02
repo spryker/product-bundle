@@ -12,12 +12,5 @@ use Generated\Shared\Transfer\QuoteTransfer;
 
 interface QuoteItemFinderInterface
 {
-    /**
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
-     * @param string $sku
-     * @param string|null $groupKey
-     *
-     * @return \Generated\Shared\Transfer\ItemTransfer|null
-     */
     public function findItem(QuoteTransfer $quoteTransfer, string $sku, ?string $groupKey = null): ?ItemTransfer;
 }

@@ -51,9 +51,6 @@ class ExpandOrderProductBundlesWithProductOptionsTest extends Unit
      */
     protected $tester;
 
-    /**
-     * @return void
-     */
     public function testExpandOrderProductBundlesWithProductOptionsCopiesUniqueProductOptionsFromItemsToBundleItems(): void
     {
         // Arrange
@@ -67,9 +64,6 @@ class ExpandOrderProductBundlesWithProductOptionsTest extends Unit
         $this->assertCount(2, $orderTransfer->getBundleItems()->offsetGet(1)->getProductOptions());
     }
 
-    /**
-     * @return void
-     */
     public function testExpandOrderProductBundlesWithProductOptionsWithoutProductBundles(): void
     {
         // Arrange
@@ -83,9 +77,6 @@ class ExpandOrderProductBundlesWithProductOptionsTest extends Unit
         $this->assertEmpty($orderTransfer->getBundleItems());
     }
 
-    /**
-     * @return void
-     */
     public function testExpandOrderProductBundlesWithProductOptionsConsiderProductOptionOrdering(): void
     {
         // Arrange
@@ -101,9 +92,6 @@ class ExpandOrderProductBundlesWithProductOptionsTest extends Unit
         );
     }
 
-    /**
-     * @return \Generated\Shared\Transfer\OrderTransfer
-     */
     protected function createFakeOrder(): OrderTransfer
     {
         $bundleItems = [

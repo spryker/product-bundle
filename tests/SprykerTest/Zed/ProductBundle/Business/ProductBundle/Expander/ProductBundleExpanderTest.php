@@ -62,9 +62,6 @@ class ProductBundleExpanderTest extends Unit
      */
     protected $productBundleExpander;
 
-    /**
-     * @return void
-     */
     protected function _setUp(): void
     {
         parent::_setUp();
@@ -72,9 +69,6 @@ class ProductBundleExpanderTest extends Unit
         $this->productBundleExpander = new ProductBundleExpander();
     }
 
-    /**
-     * @return void
-     */
     public function testNonUniqueBundleItemsQuantityAndPriceAreSummedUp(): void
     {
         // Arrange
@@ -103,9 +97,6 @@ class ProductBundleExpanderTest extends Unit
         $this->assertEquals($expectedFirstBundleItemSumPrice, $result[0]->getSumPrice());
     }
 
-    /**
-     * @return void
-     */
     public function testUniqueBundleItemsQuantityAndPriceAreNotSummedUp(): void
     {
         // Arrange

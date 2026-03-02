@@ -24,10 +24,6 @@ class ProductBundleStatusUpdater implements ProductBundleStatusUpdaterInterface
      */
     protected $productBundleRepository;
 
-    /**
-     * @param \Spryker\Zed\ProductBundle\Dependency\Facade\ProductBundleToProductFacadeInterface $productFacade
-     * @param \Spryker\Zed\ProductBundle\Persistence\ProductBundleRepositoryInterface $productBundleRepository
-     */
     public function __construct(
         ProductBundleToProductFacadeInterface $productFacade,
         ProductBundleRepositoryInterface $productBundleRepository
@@ -36,11 +32,6 @@ class ProductBundleStatusUpdater implements ProductBundleStatusUpdaterInterface
         $this->productBundleRepository = $productBundleRepository;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\ProductConcreteTransfer $productConcreteTransfer
-     *
-     * @return \Generated\Shared\Transfer\ProductConcreteTransfer
-     */
     public function deactivateRelatedProductBundles(ProductConcreteTransfer $productConcreteTransfer): ProductConcreteTransfer
     {
         if ($productConcreteTransfer->getIsActive() === true) {

@@ -22,12 +22,6 @@ class ProductBundleReturnCreateFormHandler implements ProductBundleReturnCreateF
      */
     protected const CUSTOM_REASON_KEY = 'custom_reason';
 
-    /**
-     * @param array $returnCreateFormData
-     * @param \Generated\Shared\Transfer\ReturnCreateRequestTransfer $returnCreateRequestTransfer
-     *
-     * @return \Generated\Shared\Transfer\ReturnCreateRequestTransfer
-     */
     public function handle(array $returnCreateFormData, ReturnCreateRequestTransfer $returnCreateRequestTransfer): ReturnCreateRequestTransfer
     {
         $returnBundleItemsFormData = $returnCreateFormData[ProductBundleReturnCreateFormDataProvider::FIELD_RETURN_BUNDLE_ITEMS] ?? [];
@@ -46,12 +40,6 @@ class ProductBundleReturnCreateFormHandler implements ProductBundleReturnCreateF
         return $returnCreateRequestTransfer;
     }
 
-    /**
-     * @param array $returnBundleItemFormData
-     * @param \Generated\Shared\Transfer\ReturnCreateRequestTransfer $returnCreateRequestTransfer
-     *
-     * @return \Generated\Shared\Transfer\ReturnCreateRequestTransfer
-     */
     protected function addBundleItemsToRequest(
         array $returnBundleItemFormData,
         ReturnCreateRequestTransfer $returnCreateRequestTransfer
@@ -70,11 +58,6 @@ class ProductBundleReturnCreateFormHandler implements ProductBundleReturnCreateF
         return $returnCreateRequestTransfer;
     }
 
-    /**
-     * @param array $returnBundleItemFormData
-     *
-     * @return string|null
-     */
     protected function extractReason(array $returnBundleItemFormData): ?string
     {
         if ($returnBundleItemFormData[ReturnItemTransfer::REASON] === static::CUSTOM_REASON_KEY && $returnBundleItemFormData[ReturnCreateBundleItemsSubForm::FIELD_CUSTOM_REASON]) {
@@ -84,11 +67,6 @@ class ProductBundleReturnCreateFormHandler implements ProductBundleReturnCreateF
         return $returnBundleItemFormData[ReturnItemTransfer::REASON];
     }
 
-    /**
-     * @param array $returnBundleItemFormData
-     *
-     * @return bool
-     */
     protected function isReturnBundleItemChecked(array $returnBundleItemFormData): bool
     {
         return !empty($returnBundleItemFormData[ItemTransfer::IS_RETURNABLE]);

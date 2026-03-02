@@ -27,9 +27,6 @@ use Spryker\Zed\ProductBundle\Business\ProductBundle\Calculation\ProductBundlePr
  */
 class ProductBundlePriceCalculationTest extends Unit
 {
-    /**
-     * @return void
-     */
     public function testCalculateShouldSumAllBundledItemAmountsToProductBundle(): void
     {
         $productBundlePriceCalculationMock = $this->createProductPriceCalculationMock();
@@ -62,9 +59,6 @@ class ProductBundlePriceCalculationTest extends Unit
         return new ProductBundlePriceCalculation();
     }
 
-    /**
-     * @return \Generated\Shared\Transfer\OrderTransfer
-     */
     protected function createOrderTransfer(): OrderTransfer
     {
         $orderTransfer = new OrderTransfer();
@@ -75,9 +69,6 @@ class ProductBundlePriceCalculationTest extends Unit
         return $orderTransfer;
     }
 
-    /**
-     * @return \Generated\Shared\Transfer\QuoteTransfer
-     */
     protected function createQuoteTransfer(): QuoteTransfer
     {
         $quoteTransfer = new QuoteTransfer();

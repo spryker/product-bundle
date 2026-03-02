@@ -44,9 +44,6 @@ class ProductBundleAvailabilityHandlerTest extends Unit
      */
     protected const STORE_NAME = 'DE';
 
-    /**
-     * @return void
-     */
     public function testUpdateAffectedBundlesAvailabilityShouldUpdateAffectedBundlesAvailability(): void
     {
         $bundleSku = 'sku-2';
@@ -85,9 +82,6 @@ class ProductBundleAvailabilityHandlerTest extends Unit
         $productBundleAvailabilityHandlerMock->updateAffectedBundlesAvailability('sku-1');
     }
 
-    /**
-     * @return void
-     */
     public function testUpdateBundleAvailabilityShouldUpdateGivenBundleAvailability(): void
     {
         $bundleSku = 'sku-2';
