@@ -73,7 +73,7 @@ class ProductBundleCheckoutAvailabilityCheck extends BasePreCheck implements Pro
 
             if ($unavailableCheckoutBundledItems) {
                 foreach ($unavailableCheckoutBundledItems as $unavailableCheckoutBundledItem) {
-                    $checkoutErrorMessages[] = $this->createCheckoutResponseTransfer($unavailableCheckoutBundledItem);
+                    $checkoutErrorMessages[] = $this->createCheckoutResponseTransfer($unavailableCheckoutBundledItem, $bundleItemTransfer->getGroupKey());
                 }
             }
         }
@@ -81,18 +81,13 @@ class ProductBundleCheckoutAvailabilityCheck extends BasePreCheck implements Pro
         return $checkoutErrorMessages;
     }
 
-    /**
-     * @param array $parameters
-     *
-     * @return \Generated\Shared\Transfer\CheckoutErrorTransfer
-     */
-    protected function createCheckoutResponseTransfer(array $parameters)
+    protected function createCheckoutResponseTransfer(array $parameters, ?string $groupKey = null): CheckoutErrorTransfer
     {
-        $checkoutErrorTransfer = new CheckoutErrorTransfer();
-        $checkoutErrorTransfer->setMessage(static::ERROR_BUNDLE_ITEM_UNAVAILABLE_TRANSLATION_KEY);
-        $checkoutErrorTransfer->setParameters($parameters);
-
-        return $checkoutErrorTransfer;
+        return (new CheckoutErrorTransfer())
+            ->setMessage(static::ERROR_BUNDLE_ITEM_UNAVAILABLE_TRANSLATION_KEY)
+            ->setParameters($parameters)
+            ->setErrorType($this->productBundleConfig->getCheckoutErrorType())
+            ->setGroupKey($groupKey);
     }
 
     /**

@@ -11,6 +11,8 @@ use Spryker\Zed\Kernel\AbstractBundleConfig;
 
 class ProductBundleConfig extends AbstractBundleConfig
 {
+    protected const string CHECKOUT_ERROR_TYPE = 'ProductBundleUnavailable';
+
     /**
      * @see \Spryker\Zed\Availability\AvailabilityConfig::ERROR_TYPE_AVAILABILITY
      *
@@ -48,6 +50,17 @@ class ProductBundleConfig extends AbstractBundleConfig
     public function getAvailabilityProductSkuParameter(): string
     {
         return static::PARAMETER_PRODUCT_SKU_AVAILABILITY;
+    }
+
+    /**
+     * Specification:
+     * - Returns the error type identifier used in CheckoutErrorTransfer for errors produced by this module.
+     *
+     * @api
+     */
+    public function getCheckoutErrorType(): string
+    {
+        return static::CHECKOUT_ERROR_TYPE;
     }
 
     /**
