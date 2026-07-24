@@ -1,5 +1,173 @@
 [
     {
+        "fileName": "src/Spryker/Client/ProductBundle/Plugin/Cart/BundleProductQuoteItemFinderPlugin.php",
+        "description": "Access: The public class method `Spryker\\Client\\ProductBundle\\Plugin\\Cart\\BundleProductQuoteItemFinderPlugin::findItem()()` does not contain an `{@inheritDoc}` tag which violates rule \"Every API public method must also contain the {@inheritDoc} tag in docblock.\"",
+        "rule": "ImplementsApiInheritDocRule",
+        "ruleset": "Spryker",
+        "priority": "3"
+    },
+    {
+        "fileName": "src/Spryker/Client/ProductBundle/Plugin/Cart/ItemCountPlugin.php",
+        "description": "Access: The public class method `Spryker\\Client\\ProductBundle\\Plugin\\Cart\\ItemCountPlugin::getItemCount()()` does not contain an `{@inheritDoc}` tag which violates rule \"Every API public method must also contain the {@inheritDoc} tag in docblock.\"",
+        "rule": "ImplementsApiInheritDocRule",
+        "ruleset": "Spryker",
+        "priority": "3"
+    },
+    {
+        "fileName": "src/Spryker/Client/ProductBundle/Plugin/Cart/ProductBundleItemCountQuantityPlugin.php",
+        "description": "Plugin: The plugin class implements Spryker\\Client\\Cart\\Dependency\\Plugin interface without participation of Extension module which violates rule \"A plugin class must implement a ModuleExtension's interface instead of implementing an extension interface of Module\"",
+        "rule": "NewPluginExtensionModuleRule",
+        "ruleset": "Spryker",
+        "priority": "3"
+    },
+    {
+        "fileName": "src/Spryker/Client/ProductBundle/Plugin/Cart/ProductBundleItemCountQuantityPlugin.php",
+        "description": "Access: The public class method `Spryker\\Client\\ProductBundle\\Plugin\\Cart\\ProductBundleItemCountQuantityPlugin::getItemCount()()` does not contain an `{@inheritDoc}` tag which violates rule \"Every API public method must also contain the {@inheritDoc} tag in docblock.\"",
+        "rule": "ImplementsApiInheritDocRule",
+        "ruleset": "Spryker",
+        "priority": "3"
+    },
+    {
+        "fileName": "src/Spryker/Client/ProductBundle/Plugin/Cart/RemoveBundleChangeRequestExpanderPlugin.php",
+        "description": "Access: The public class method `Spryker\\Client\\ProductBundle\\Plugin\\Cart\\RemoveBundleChangeRequestExpanderPlugin::expand()()` does not contain an `{@inheritDoc}` tag which violates rule \"Every API public method must also contain the {@inheritDoc} tag in docblock.\"",
+        "rule": "ImplementsApiInheritDocRule",
+        "ruleset": "Spryker",
+        "priority": "3"
+    },
+    {
+        "fileName": "src/Spryker/Client/ProductBundle/Plugin/Cart/ReplaceBundlesWithUnitedItemsCartChangeRequestExpanderPlugin.php",
+        "description": "Access: The public class method `Spryker\\Client\\ProductBundle\\Plugin\\Cart\\ReplaceBundlesWithUnitedItemsCartChangeRequestExpanderPlugin::expand()()` does not contain an `{@inheritDoc}` tag which violates rule \"Every API public method must also contain the {@inheritDoc} tag in docblock.\"",
+        "rule": "ImplementsApiInheritDocRule",
+        "ruleset": "Spryker",
+        "priority": "3"
+    },
+    {
+        "fileName": "src/Spryker/Zed/ProductBundle/Business/ProductBundle/Checkout/ProductBundleOrderSaver.php",
+        "description": "Zed Persistence Layer - Spy Entity: Entity `SpySalesOrderItemBundle` initialized in `Spryker\\Zed\\ProductBundle\\Business\\ProductBundle\\Checkout\\ProductBundleOrderSaver`. The class violates rule \"Entity can be initialized in Repository or EntityManager only.\".",
+        "rule": "SpyEntityUsageRule",
+        "ruleset": "Spryker Zed",
+        "priority": "3"
+    },
+    {
+        "fileName": "src/Spryker/Zed/ProductBundle/Business/ProductBundleBusinessFactory.php",
+        "description": "`ProductBundleBusinessFactory::createProductBundleCartItemGroupKeyExpander()` (`Spryker\\Zed\\ProductBundle\\Business\\ProductBundleBusinessFactory::createProductBundleCartItemGroupKeyExpander()`) returns a concrete class which violates the rule \"Every method in a Factory must only return an interface or an array of interfaces.\"",
+        "rule": "FactoryMethodReturnInterfaceRule",
+        "ruleset": "Spryker",
+        "priority": "3"
+    },
+    {
+        "fileName": "src/Spryker/Zed/ProductBundle/Communication/Plugin/Calculation/CalculateBundlePricePlugin.php",
+        "description": "Plugin: The plugin class implements Spryker\\Zed\\Calculation\\Dependency\\Plugin interface without participation of Extension module which violates rule \"A plugin class must implement a ModuleExtension's interface instead of implementing an extension interface of Module\"",
+        "rule": "NewPluginExtensionModuleRule",
+        "ruleset": "Spryker",
+        "priority": "3"
+    },
+    {
+        "fileName": "src/Spryker/Zed/ProductBundle/Communication/Plugin/Cart/CartItemWithBundleGroupKeyExpanderPlugin.php",
+        "description": "Plugin: The plugin class implements Spryker\\Zed\\Cart\\Dependency interface without participation of Extension module which violates rule \"A plugin class must implement a ModuleExtension's interface instead of implementing an extension interface of Module\"",
+        "rule": "NewPluginExtensionModuleRule",
+        "ruleset": "Spryker",
+        "priority": "3"
+    },
+    {
+        "fileName": "src/Spryker/Zed/ProductBundle/Communication/Plugin/Cart/CartPostSaveUpdateBundlesPlugin.php",
+        "description": "Plugin: The plugin class implements Spryker\\Zed\\Cart\\Dependency interface without participation of Extension module which violates rule \"A plugin class must implement a ModuleExtension's interface instead of implementing an extension interface of Module\"",
+        "rule": "NewPluginExtensionModuleRule",
+        "ruleset": "Spryker",
+        "priority": "3"
+    },
+    {
+        "fileName": "src/Spryker/Zed/ProductBundle/Communication/Plugin/Cart/ExpandBundleItemsPlugin.php",
+        "description": "Plugin: The plugin class implements Spryker\\Zed\\Cart\\Dependency interface without participation of Extension module which violates rule \"A plugin class must implement a ModuleExtension's interface instead of implementing an extension interface of Module\"",
+        "rule": "NewPluginExtensionModuleRule",
+        "ruleset": "Spryker",
+        "priority": "3"
+    },
+    {
+        "fileName": "src/Spryker/Zed/ProductBundle/Communication/Plugin/Cart/ExpandBundleItemsWithImagesPlugin.php",
+        "description": "Plugin: The plugin class implements Spryker\\Zed\\Cart\\Dependency interface without participation of Extension module which violates rule \"A plugin class must implement a ModuleExtension's interface instead of implementing an extension interface of Module\"",
+        "rule": "NewPluginExtensionModuleRule",
+        "ruleset": "Spryker",
+        "priority": "3"
+    },
+    {
+        "fileName": "src/Spryker/Zed/ProductBundle/Communication/Plugin/Checkout/ProductBundleAvailabilityCheckoutPreConditionPlugin.php",
+        "description": "Plugin: The plugin class implements Spryker\\Zed\\Checkout\\Dependency\\Plugin interface without participation of Extension module which violates rule \"A plugin class must implement a ModuleExtension's interface instead of implementing an extension interface of Module\"",
+        "rule": "NewPluginExtensionModuleRule",
+        "ruleset": "Spryker",
+        "priority": "3"
+    },
+    {
+        "fileName": "src/Spryker/Zed/ProductBundle/Communication/Plugin/Checkout/ProductBundleOrderSaverPlugin.php",
+        "description": "Plugin: The plugin class implements Spryker\\Zed\\Checkout\\Dependency\\Plugin interface without participation of Extension module which violates rule \"A plugin class must implement a ModuleExtension's interface instead of implementing an extension interface of Module\"",
+        "rule": "NewPluginExtensionModuleRule",
+        "ruleset": "Spryker",
+        "priority": "3"
+    },
+    {
+        "fileName": "src/Spryker/Zed/ProductBundle/Communication/Plugin/Oms/ProductBundleAvailabilityHandlerPlugin.php",
+        "description": "Plugin: The plugin class implements Spryker\\Zed\\Oms\\Dependency\\Plugin interface without participation of Extension module which violates rule \"A plugin class must implement a ModuleExtension's interface instead of implementing an extension interface of Module\"",
+        "rule": "NewPluginExtensionModuleRule",
+        "ruleset": "Spryker",
+        "priority": "3"
+    },
+    {
+        "fileName": "src/Spryker/Zed/ProductBundle/Communication/Plugin/Product/ProductBundleDeactivatorProductConcreteAfterUpdatePlugin.php",
+        "description": "Plugin: The plugin class implements Spryker\\Zed\\Product\\Dependency\\Plugin interface without participation of Extension module which violates rule \"A plugin class must implement a ModuleExtension's interface instead of implementing an extension interface of Module\"",
+        "rule": "NewPluginExtensionModuleRule",
+        "ruleset": "Spryker",
+        "priority": "3"
+    },
+    {
+        "fileName": "src/Spryker/Zed/ProductBundle/Communication/Plugin/Product/ProductBundleProductConcreteAfterCreatePlugin.php",
+        "description": "Plugin: The plugin class implements Spryker\\Zed\\Product\\Dependency\\Plugin interface without participation of Extension module which violates rule \"A plugin class must implement a ModuleExtension's interface instead of implementing an extension interface of Module\"",
+        "rule": "NewPluginExtensionModuleRule",
+        "ruleset": "Spryker",
+        "priority": "3"
+    },
+    {
+        "fileName": "src/Spryker/Zed/ProductBundle/Communication/Plugin/Product/ProductBundleProductConcreteAfterUpdatePlugin.php",
+        "description": "Plugin: The plugin class implements Spryker\\Zed\\Product\\Dependency\\Plugin interface without participation of Extension module which violates rule \"A plugin class must implement a ModuleExtension's interface instead of implementing an extension interface of Module\"",
+        "rule": "NewPluginExtensionModuleRule",
+        "ruleset": "Spryker",
+        "priority": "3"
+    },
+    {
+        "fileName": "src/Spryker/Zed/ProductBundle/Communication/Plugin/Product/ProductBundleProductConcreteReadPlugin.php",
+        "description": "Plugin: The plugin class implements Spryker\\Zed\\Product\\Dependency\\Plugin interface without participation of Extension module which violates rule \"A plugin class must implement a ModuleExtension's interface instead of implementing an extension interface of Module\"",
+        "rule": "NewPluginExtensionModuleRule",
+        "ruleset": "Spryker",
+        "priority": "3"
+    },
+    {
+        "fileName": "src/Spryker/Zed/ProductBundle/Communication/Plugin/Sales/ProductBundleIdHydratorPlugin.php",
+        "description": "Plugin: The plugin class implements Spryker\\Zed\\Sales\\Dependency\\Plugin interface without participation of Extension module which violates rule \"A plugin class must implement a ModuleExtension's interface instead of implementing an extension interface of Module\"",
+        "rule": "NewPluginExtensionModuleRule",
+        "ruleset": "Spryker",
+        "priority": "3"
+    },
+    {
+        "fileName": "src/Spryker/Zed/ProductBundle/Communication/Plugin/Sales/ProductBundleOrderHydratePlugin.php",
+        "description": "Plugin: The plugin class implements Spryker\\Zed\\Sales\\Dependency\\Plugin interface without participation of Extension module which violates rule \"A plugin class must implement a ModuleExtension's interface instead of implementing an extension interface of Module\"",
+        "rule": "NewPluginExtensionModuleRule",
+        "ruleset": "Spryker",
+        "priority": "3"
+    },
+    {
+        "fileName": "src/Spryker/Zed/ProductBundle/Communication/Plugin/Sales/ProductBundleOrderSaverPlugin.php",
+        "description": "Plugin: The plugin class implements Spryker\\Zed\\Checkout\\Dependency\\Plugin interface without participation of Extension module which violates rule \"A plugin class must implement a ModuleExtension's interface instead of implementing an extension interface of Module\"",
+        "rule": "NewPluginExtensionModuleRule",
+        "ruleset": "Spryker",
+        "priority": "3"
+    },
+    {
+        "fileName": "src/Spryker/Zed/ProductBundle/Communication/Plugin/Stock/ProductBundleAvailabilityHandlerPlugin.php",
+        "description": "Plugin: The plugin class implements Spryker\\Zed\\Stock\\Dependency\\Plugin interface without participation of Extension module which violates rule \"A plugin class must implement a ModuleExtension's interface instead of implementing an extension interface of Module\"",
+        "rule": "NewPluginExtensionModuleRule",
+        "ruleset": "Spryker",
+        "priority": "3"
+    },
+    {
         "fileName": "src/Spryker/Zed/ProductBundle/Dependency/Facade/ProductBundleToAvailabilityFacadeBridge.php",
         "description": "Bridges: Method `getStoresWhereProductAvailabilityIsDefined()` must have `public function get<DomainEntity>Collection(<DomainEntity>CriteriaTransfer): <DomainEntity>CollectionTransfer` signature.",
         "rule": "BridgeFacadeMethodsRule",
@@ -264,5 +432,12 @@
         "rule": "BridgeMethodsInterfaceRule",
         "ruleset": "Spryker",
         "priority": "2"
+    },
+    {
+        "fileName": "src/Spryker/Zed/ProductBundle/Persistence/ProductBundlePersistenceFactory.php",
+        "description": "`ProductBundlePersistenceFactory::createProductBundleQuery()` (`Spryker\\Zed\\ProductBundle\\Persistence\\ProductBundlePersistenceFactory::createProductBundleQuery()`) returns a concrete class which violates the rule \"Every method in a Factory must only return an interface or an array of interfaces.\"",
+        "rule": "FactoryMethodReturnInterfaceRule",
+        "ruleset": "Spryker",
+        "priority": "3"
     }
 ]

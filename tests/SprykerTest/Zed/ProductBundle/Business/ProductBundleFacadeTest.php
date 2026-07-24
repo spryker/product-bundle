@@ -781,6 +781,7 @@ class ProductBundleFacadeTest extends Unit
     {
         // Arrange
         $currencyTransfer = $this->tester->haveCurrencyTransfer([CurrencyTransfer::CODE => ProductBundleBusinessTester::FAKE_CURRENCY_CODE]);
+        $otherCurrencyTransfer = $this->tester->haveCurrencyTransfer([CurrencyTransfer::CODE => ProductBundleBusinessTester::FAKE_CURRENCY_CODE_2]);
 
         $bundleProductTransfer = $this->tester->createProductBundle(
             ProductBundleBusinessTester::BUNDLED_PRODUCT_PRICE_1,
@@ -804,12 +805,12 @@ class ProductBundleFacadeTest extends Unit
             false,
             [
                 $this->tester->createProduct(
-                    0,
+                    ProductBundleBusinessTester::BUNDLED_PRODUCT_PRICE_2,
                     ProductBundleBusinessTester::SKU_BUNDLED_2,
                     true,
                     true,
                     ProductBundleBusinessTester::DEFAULT_PRODUCT_AVAILABILITY,
-                    $currencyTransfer,
+                    $otherCurrencyTransfer,
                 ),
             ],
             ProductBundleBusinessTester::SKU_BUNDLED_4,

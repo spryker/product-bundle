@@ -24,6 +24,10 @@ use Generated\Shared\Transfer\ProductOptionTransfer;
 use Generated\Shared\Transfer\QuoteTransfer;
 use Generated\Shared\Transfer\StockProductTransfer;
 use Generated\Shared\Transfer\StoreTransfer;
+use ReflectionProperty;
+use Spryker\Zed\Currency\Business\Reader\CurrencyReader;
+use Spryker\Zed\PriceProduct\Business\Currency\CurrencyReaderWithCache;
+use Spryker\Zed\PriceProduct\Business\Model\PriceProductCriteriaBuilder;
 use Spryker\Zed\ProductBundle\Business\ProductBundle\Cache\ProductBundleCache;
 use Spryker\Zed\ProductBundle\Communication\Plugin\Checkout\ProductBundleOrderSaverPlugin;
 use SprykerTest\Zed\Sales\Helper\BusinessHelper;
@@ -101,6 +105,8 @@ class ProductBundleBusinessTester extends Actor
      * @var string
      */
     public const FAKE_CURRENCY_CODE = 'FAKE';
+
+    public const string FAKE_CURRENCY_CODE_2 = 'FAK2';
 
     /**
      * @var int
@@ -285,6 +291,27 @@ class ProductBundleBusinessTester extends Actor
     public function cleanProductBundleCache(): void
     {
         (new ProductBundleCache())->cleanCache();
+        $this->cleanPriceProductCurrencyCache();
+    }
+
+    protected function cleanPriceProductCurrencyCache(): void
+    {
+        $staticCacheProperties = [
+            [CurrencyReader::class, 'currencyCache', []],
+            [CurrencyReaderWithCache::class, 'currencyCache', []],
+            [CurrencyReaderWithCache::class, 'defaultCurrency', null],
+            [PriceProductCriteriaBuilder::class, 'defaultCurrencyTransferForCurrentStoreCache', null],
+        ];
+
+        foreach ($staticCacheProperties as [$className, $propertyName, $resetValue]) {
+            if (!property_exists($className, $propertyName)) {
+                continue;
+            }
+
+            $reflectionProperty = new ReflectionProperty($className, $propertyName);
+            $reflectionProperty->setAccessible(true);
+            $reflectionProperty->setValue(null, $resetValue);
+        }
     }
 
     public function createBaseQuoteTransfer(): QuoteTransfer
