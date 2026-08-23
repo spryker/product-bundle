@@ -309,7 +309,6 @@ class ProductBundleBusinessTester extends Actor
             }
 
             $reflectionProperty = new ReflectionProperty($className, $propertyName);
-            $reflectionProperty->setAccessible(true);
             $reflectionProperty->setValue(null, $resetValue);
         }
     }
