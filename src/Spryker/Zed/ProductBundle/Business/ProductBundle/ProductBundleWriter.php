@@ -8,9 +8,12 @@
 namespace Spryker\Zed\ProductBundle\Business\ProductBundle;
 
 use ArrayObject;
+use Generated\Shared\Transfer\ProductConcreteConditionsTransfer;
+use Generated\Shared\Transfer\ProductConcreteCriteriaTransfer;
 use Generated\Shared\Transfer\ProductConcreteTransfer;
 use Generated\Shared\Transfer\ProductForBundleTransfer;
 use Spryker\Zed\ProductBundle\Business\ProductBundle\Stock\ProductBundleStockWriterInterface;
+use Spryker\Zed\ProductBundle\Dependency\Facade\ProductBundleToProductFacadeInterface;
 use Spryker\Zed\ProductBundle\Persistence\ProductBundleQueryContainerInterface;
 use Throwable;
 
@@ -26,12 +29,16 @@ class ProductBundleWriter implements ProductBundleWriterInterface
      */
     protected $productBundleStockWriter;
 
+    protected ProductBundleToProductFacadeInterface $productFacade;
+
     public function __construct(
         ProductBundleQueryContainerInterface $productBundleQueryContainer,
-        ProductBundleStockWriterInterface $productBundleStockWriter
+        ProductBundleStockWriterInterface $productBundleStockWriter,
+        ProductBundleToProductFacadeInterface $productFacade,
     ) {
         $this->productBundleQueryContainer = $productBundleQueryContainer;
         $this->productBundleStockWriter = $productBundleStockWriter;
+        $this->productFacade = $productFacade;
     }
 
     /**
@@ -56,6 +63,8 @@ class ProductBundleWriter implements ProductBundleWriterInterface
         }
 
         $productConcreteTransfer->requireIdProductConcrete();
+
+        $this->resolveBundledProductIds($bundledProducts);
 
         try {
             $this->productBundleQueryContainer->getConnection()->beginTransaction();
@@ -120,6 +129,49 @@ class ProductBundleWriter implements ProductBundleWriterInterface
             }
 
             $productBundleEntity->delete();
+        }
+    }
+
+    /**
+     * @param \ArrayObject<int, \Generated\Shared\Transfer\ProductForBundleTransfer> $bundledProducts
+     */
+    protected function resolveBundledProductIds(ArrayObject $bundledProducts): void
+    {
+        $skusToResolve = [];
+
+        foreach ($bundledProducts as $productForBundleTransfer) {
+            if ($productForBundleTransfer->getIdProductConcrete() === null && $productForBundleTransfer->getSku() !== null) {
+                $skusToResolve[$productForBundleTransfer->getSku()] = true;
+            }
+        }
+
+        if ($skusToResolve === []) {
+            return;
+        }
+
+        $criteriaTransfer = (new ProductConcreteCriteriaTransfer())
+            ->setProductConcreteConditions(
+                (new ProductConcreteConditionsTransfer())->setSkus(array_keys($skusToResolve)),
+            );
+
+        $collectionTransfer = $this->productFacade->getProductConcreteCollection($criteriaTransfer);
+
+        $productIdsIndexedBySku = [];
+
+        foreach ($collectionTransfer->getProducts() as $productConcreteTransfer) {
+            $productIdsIndexedBySku[$productConcreteTransfer->getSkuOrFail()] = $productConcreteTransfer->getIdProductConcreteOrFail();
+        }
+
+        foreach ($bundledProducts as $productForBundleTransfer) {
+            if ($productForBundleTransfer->getIdProductConcrete() !== null) {
+                continue;
+            }
+
+            $sku = $productForBundleTransfer->getSku();
+
+            if ($sku !== null && isset($productIdsIndexedBySku[$sku])) {
+                $productForBundleTransfer->setIdProductConcrete($productIdsIndexedBySku[$sku]);
+            }
         }
     }
 

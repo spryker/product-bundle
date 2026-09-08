@@ -281,4 +281,13 @@
     <transfer name="ProductConcreteCollection">
         <property name="products" type="ProductConcrete[]" singular="product"/>
     </transfer>
+    <transfer name="ProductConcreteCollectionRequest" strict="true">
+    </transfer>
+
+    <transfer name="ProductConcreteCollectionResponse" strict="true">
+    </transfer>
+
+    <transfer name="Error">
+    </transfer>
+
 </transfers>

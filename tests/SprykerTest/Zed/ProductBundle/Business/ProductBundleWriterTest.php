@@ -16,6 +16,7 @@ use Orm\Zed\ProductBundle\Persistence\SpyProductBundle;
 use Propel\Runtime\Connection\ConnectionInterface;
 use Spryker\Zed\ProductBundle\Business\ProductBundle\ProductBundleWriter;
 use Spryker\Zed\ProductBundle\Business\ProductBundle\Stock\ProductBundleStockWriterInterface;
+use Spryker\Zed\ProductBundle\Dependency\Facade\ProductBundleToProductFacadeInterface;
 use Spryker\Zed\ProductBundle\Persistence\ProductBundleQueryContainerInterface;
 
 /**
@@ -120,8 +121,10 @@ class ProductBundleWriterTest extends Unit
 
         $productBundleStockWriterMock->expects($this->once())->method('updateStock');
 
+        $productFacadeMock = $this->createMock(ProductBundleToProductFacadeInterface::class);
+
         $productBundleWriterMock = $this->getMockBuilder(ProductBundleWriter::class)
-            ->setConstructorArgs([$productBundleQueryContainerMock, $productBundleStockWriterMock])
+            ->setConstructorArgs([$productBundleQueryContainerMock, $productBundleStockWriterMock, $productFacadeMock])
             ->onlyMethods(['findOrCreateProductBundleEntity', 'findProductBundleEntity'])
             ->getMock();
 

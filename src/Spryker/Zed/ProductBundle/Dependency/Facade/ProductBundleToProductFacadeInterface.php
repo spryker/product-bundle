@@ -56,4 +56,6 @@ interface ProductBundleToProductFacadeInterface
      * @return \Generated\Shared\Transfer\ProductConcreteCollectionTransfer
      */
     public function getProductConcreteCollection(ProductConcreteCriteriaTransfer $productConcreteCriteriaTransfer): ProductConcreteCollectionTransfer;
+
+    public function hasProductConcrete(string $sku): bool;
 }

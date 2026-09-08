@@ -10,6 +10,8 @@ namespace Spryker\Zed\ProductBundle\Business;
 use Spryker\Zed\Kernel\Business\AbstractBusinessFactory;
 use Spryker\Zed\ProductBundle\Business\Extractor\QuoteOriginalSalesOrderItemExtractor;
 use Spryker\Zed\ProductBundle\Business\Extractor\QuoteOriginalSalesOrderItemExtractorInterface;
+use Spryker\Zed\ProductBundle\Business\Product\Validator\ProductBundleValidator;
+use Spryker\Zed\ProductBundle\Business\Product\Validator\ProductBundleValidatorInterface;
 use Spryker\Zed\ProductBundle\Business\ProductBundle\Availability\PreCheck\ProductBundleCartAvailabilityCheck;
 use Spryker\Zed\ProductBundle\Business\ProductBundle\Availability\PreCheck\ProductBundleCheckoutAvailabilityCheck;
 use Spryker\Zed\ProductBundle\Business\ProductBundle\Availability\ProductBundleAvailabilityHandler;
@@ -84,6 +86,7 @@ class ProductBundleBusinessFactory extends AbstractBusinessFactory
         return new ProductBundleWriter(
             $this->getQueryContainer(),
             $this->createProductBundleStockWriter(),
+            $this->getProductFacade(),
         );
     }
 
@@ -464,5 +467,10 @@ class ProductBundleBusinessFactory extends AbstractBusinessFactory
     public function getStockFacade(): ProductBundleToStockFacadeInterface
     {
         return $this->getProvidedDependency(ProductBundleDependencyProvider::FACADE_STOCK);
+    }
+
+    public function createProductBundleValidator(): ProductBundleValidatorInterface
+    {
+        return new ProductBundleValidator($this->getProductFacade());
     }
 }

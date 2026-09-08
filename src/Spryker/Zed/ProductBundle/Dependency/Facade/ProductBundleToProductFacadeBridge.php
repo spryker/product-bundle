@@ -87,4 +87,9 @@ class ProductBundleToProductFacadeBridge implements ProductBundleToProductFacade
 
         throw new MissingFacadeMethodException();
     }
+
+    public function hasProductConcrete(string $sku): bool
+    {
+        return $this->productFacade->hasProductConcrete($sku);
+    }
 }
