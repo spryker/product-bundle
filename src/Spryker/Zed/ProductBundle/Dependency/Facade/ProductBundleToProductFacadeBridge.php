@@ -12,6 +12,7 @@ use Generated\Shared\Transfer\ProductAbstractTransfer;
 use Generated\Shared\Transfer\ProductConcreteCollectionTransfer;
 use Generated\Shared\Transfer\ProductConcreteCriteriaTransfer;
 use Generated\Shared\Transfer\ProductConcreteTransfer;
+use Generated\Shared\Transfer\ProductCriteriaTransfer;
 use Spryker\Zed\ProductBundle\Exception\MissingFacadeMethodException;
 
 class ProductBundleToProductFacadeBridge implements ProductBundleToProductFacadeInterface
@@ -83,6 +84,23 @@ class ProductBundleToProductFacadeBridge implements ProductBundleToProductFacade
         // This check is needed for BC reasons, because the method was added in spryker/product:6.35.0.
         if (method_exists($this->productFacade, 'getProductConcreteCollection')) {
             return $this->productFacade->getProductConcreteCollection($productConcreteCriteriaTransfer);
+        }
+
+        throw new MissingFacadeMethodException();
+    }
+
+    /**
+     * @param \Generated\Shared\Transfer\ProductCriteriaTransfer $productCriteriaTransfer
+     *
+     * @throws \Spryker\Zed\ProductBundle\Exception\MissingFacadeMethodException
+     *
+     * @return array<\Generated\Shared\Transfer\ProductConcreteTransfer>
+     */
+    public function getProductConcretesByCriteria(ProductCriteriaTransfer $productCriteriaTransfer): array
+    {
+        // This check is needed for BC reasons, because the method was added in spryker/product:6.35.0.
+        if (method_exists($this->productFacade, 'getProductConcretesByCriteria')) {
+            return $this->productFacade->getProductConcretesByCriteria($productCriteriaTransfer);
         }
 
         throw new MissingFacadeMethodException();

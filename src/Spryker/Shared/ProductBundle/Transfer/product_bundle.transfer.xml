@@ -111,6 +111,12 @@
         <property name="attributes" type="array" singular="attribute"/>
     </transfer>
 
+    <transfer name="ProductCriteria">
+        <property name="skus" type="string[]" singular="sku"/>
+        <property name="idStore" type="int"/>
+        <property name="withoutAdditionalProductData" type="bool" strict="true"/>
+    </transfer>
+
     <transfer name="ProductBundleGroup">
         <property name="isBundle" type="bool"/>
         <property name="bundleItem" type="Item"/>

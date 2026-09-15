@@ -12,6 +12,7 @@ use Generated\Shared\Transfer\ProductAbstractTransfer;
 use Generated\Shared\Transfer\ProductConcreteCollectionTransfer;
 use Generated\Shared\Transfer\ProductConcreteCriteriaTransfer;
 use Generated\Shared\Transfer\ProductConcreteTransfer;
+use Generated\Shared\Transfer\ProductCriteriaTransfer;
 
 interface ProductBundleToProductFacadeInterface
 {
@@ -56,6 +57,15 @@ interface ProductBundleToProductFacadeInterface
      * @return \Generated\Shared\Transfer\ProductConcreteCollectionTransfer
      */
     public function getProductConcreteCollection(ProductConcreteCriteriaTransfer $productConcreteCriteriaTransfer): ProductConcreteCollectionTransfer;
+
+    /**
+     * @param \Generated\Shared\Transfer\ProductCriteriaTransfer $productCriteriaTransfer
+     *
+     * @throws \Spryker\Zed\ProductBundle\Exception\MissingFacadeMethodException
+     *
+     * @return array<\Generated\Shared\Transfer\ProductConcreteTransfer>
+     */
+    public function getProductConcretesByCriteria(ProductCriteriaTransfer $productCriteriaTransfer): array;
 
     public function hasProductConcrete(string $sku): bool;
 }

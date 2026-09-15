@@ -27,6 +27,10 @@ class ProductBundleRepository extends AbstractRepository implements ProductBundl
      */
     protected const ALIAS_BUNDLED_PRODUCT = 'aliasBundledProduct';
 
+    protected const string COLUMN_BUNDLE_PRODUCT_SKU = 'bundleProductSku';
+
+    protected const string COLUMN_BUNDLED_PRODUCT_SKU = 'bundledProductSku';
+
     /**
      * @param string $sku
      *
@@ -216,5 +220,52 @@ class ProductBundleRepository extends AbstractRepository implements ProductBundl
         }
 
         return $result;
+    }
+
+    /**
+     * Resolves the bundled products of several bundles in a single query.
+     *
+     * Result format:
+     * [
+     *     $bundleProductSku => [$bundledProductSku, ...],
+     *     ...,
+     * ]
+     *
+     * @module Product
+     *
+     * @param array<string> $bundleProductSkus
+     *
+     * @return array<string, list<string>>
+     */
+    public function getBundledProductSkusGroupedByBundleProductSku(array $bundleProductSkus): array
+    {
+        if (!$bundleProductSkus) {
+            return [];
+        }
+
+        $productBundleQuery = $this->getFactory()->createProductBundleQuery();
+        $productBundleQuery
+            ->useSpyProductRelatedByFkProductQuery()
+                ->filterBySku_In($bundleProductSkus)
+            ->endUse();
+        $productBundleQuery
+            ->useSpyProductRelatedByFkBundledProductQuery(static::ALIAS_BUNDLED_PRODUCT)
+            ->endUse();
+
+        /** @var \Propel\Runtime\Collection\ArrayCollection $productBundleRows */
+        $productBundleRows = $productBundleQuery
+            ->withColumn(SpyProductTableMap::COL_SKU, static::COLUMN_BUNDLE_PRODUCT_SKU)
+            ->withColumn(static::ALIAS_BUNDLED_PRODUCT . '.sku', static::COLUMN_BUNDLED_PRODUCT_SKU)
+            ->select([static::COLUMN_BUNDLE_PRODUCT_SKU, static::COLUMN_BUNDLED_PRODUCT_SKU])
+            ->find();
+
+        $bundledProductSkusGroupedByBundleProductSku = [];
+
+        foreach ($productBundleRows as $productBundleRow) {
+            $bundledProductSkusGroupedByBundleProductSku[$productBundleRow[static::COLUMN_BUNDLE_PRODUCT_SKU]][] =
+                $productBundleRow[static::COLUMN_BUNDLED_PRODUCT_SKU];
+        }
+
+        return $bundledProductSkusGroupedByBundleProductSku;
     }
 }

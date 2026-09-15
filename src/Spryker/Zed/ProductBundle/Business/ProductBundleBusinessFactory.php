@@ -66,6 +66,8 @@ use Spryker\Zed\ProductBundle\Business\ProductBundle\Status\ProductBundleStatusU
 use Spryker\Zed\ProductBundle\Business\ProductBundle\Stock\ProductBundleStockHandler;
 use Spryker\Zed\ProductBundle\Business\ProductBundle\Stock\ProductBundleStockHandlerInterface;
 use Spryker\Zed\ProductBundle\Business\ProductBundle\Stock\ProductBundleStockWriter;
+use Spryker\Zed\ProductBundle\Business\ProductBundle\Store\PreCheck\ProductBundleStoreCheckoutCheck;
+use Spryker\Zed\ProductBundle\Business\ProductBundle\Store\PreCheck\ProductBundleStoreCheckoutCheckInterface;
 use Spryker\Zed\ProductBundle\Business\Replacer\CartReorderItemsReplacer;
 use Spryker\Zed\ProductBundle\Business\Replacer\CartReorderItemsReplacerInterface;
 use Spryker\Zed\ProductBundle\Dependency\Facade\ProductBundleToStockFacadeInterface;
@@ -231,6 +233,16 @@ class ProductBundleBusinessFactory extends AbstractBusinessFactory
             $this->getAvailabilityFacade(),
             $this->getQueryContainer(),
             $this->getStoreFacade(),
+            $this->getConfig(),
+        );
+    }
+
+    public function createProductBundleStoreCheckoutCheck(): ProductBundleStoreCheckoutCheckInterface
+    {
+        return new ProductBundleStoreCheckoutCheck(
+            $this->getProductFacade(),
+            $this->getStoreFacade(),
+            $this->getRepository(),
             $this->getConfig(),
         );
     }

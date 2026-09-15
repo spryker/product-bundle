@@ -40,6 +40,8 @@
         "spryker/container": "*",
         "spryker/currency": "*",
         "spryker/oms": "*",
+        "spryker/product-approval": "*",
+        "spryker/product-cart-connector": "*",
         "spryker/propel": "*",
         "spryker/testify": "*"
     },

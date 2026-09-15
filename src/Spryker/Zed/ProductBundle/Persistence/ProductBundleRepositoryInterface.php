@@ -56,4 +56,19 @@ interface ProductBundleRepositoryInterface
      * @return array<\Generated\Shared\Transfer\ProductBundleTransfer>
      */
     public function getProductBundleTransfersIndexedByIdProductConcrete(array $productConcreteIds): array;
+
+    /**
+     * Resolves the bundled products of several bundles in a single query.
+     *
+     * Result format:
+     * [
+     *     $bundleProductSku => [$bundledProductSku, ...],
+     *     ...,
+     * ]
+     *
+     * @param array<string> $bundleProductSkus
+     *
+     * @return array<string, list<string>>
+     */
+    public function getBundledProductSkusGroupedByBundleProductSku(array $bundleProductSkus): array;
 }
