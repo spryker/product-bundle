@@ -288,12 +288,16 @@
         <property name="products" type="ProductConcrete[]" singular="product"/>
     </transfer>
     <transfer name="ProductConcreteCollectionRequest" strict="true">
+        <property name="products" type="ProductConcrete[]" singular="product"/>
     </transfer>
 
     <transfer name="ProductConcreteCollectionResponse" strict="true">
+        <property name="errors" type="Error[]" singular="error"/>
     </transfer>
 
     <transfer name="Error">
+        <property name="entityIdentifier" type="string"/>
+        <property name="message" type="string"/>
     </transfer>
 
 </transfers>
